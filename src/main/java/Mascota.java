@@ -10,4 +10,21 @@
  */
 public class Mascota {
     private String nombre;
+    private String tipoMascota;
+    private String raza;
+    private String fechaNacimiento;
+    private String urlFoto;
+    private Dueño dueño;
+    private String codigo;
+
+    public Mascota(String nombre, String tipoMascota, String raza, String fechaNacimiento, String urlFoto, Dueño dueño) {
+        this.nombre = nombre;
+        this.tipoMascota = tipoMascota;
+        this.raza = raza;
+        this.fechaNacimiento = fechaNacimiento;
+        this.urlFoto = urlFoto;
+        this.dueño = dueño;
+    }
+    
+    
 }
