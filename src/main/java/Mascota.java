@@ -25,6 +25,34 @@ public class Mascota {
         this.urlFoto = urlFoto;
         this.dueño = dueño;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getTipoMascota() {
+        return tipoMascota;
+    }
+
+    public String getRaza() {
+        return raza;
+    }
+
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public String getUrlFoto() {
+        return urlFoto;
+    }
+
+    public Dueño getDueño() {
+        return dueño;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
     
     
 }

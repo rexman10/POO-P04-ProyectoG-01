@@ -24,12 +24,17 @@ public class Ciudad {
     public String getCodigo() {
         return codigo;
     }
-      
+    
+    public String toString(){
+        return this.getNombre();
+    }
+    
     public Ciudad(String nombre, String provincia) {
         short x  = (short) (100*Math.random()+1);
         this.nombre = nombre;
         this.provincia = provincia;
-        this.codigo = nombre.substring(0, 2) + x + provincia.substring(0,2);
+        this.codigo = nombre.substring(0, 2) + x + provincia.substring(1,3);
     }
+    
     
 }

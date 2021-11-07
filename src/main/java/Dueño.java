@@ -26,6 +26,34 @@ public class Dueño {
         this.ciudad = ciudad;
         this.email = email;
     }
+
+    public String getCedula() {
+        return cedula;
+    }
+
+    public String getNombres() {
+        return nombres;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public Ciudad getCiudad() {
+        return ciudad;
+    }
+
+    public String getEmail() {
+        return email;
+    }
     
     
 }

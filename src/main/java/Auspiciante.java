@@ -25,6 +25,34 @@ public class Auspiciante {
         this.email = email;
         this.webPage = webPage;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public Ciudad getCiudad() {
+        return ciudad;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getWebPage() {
+        return webPage;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
     
     
 }

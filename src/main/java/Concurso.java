@@ -8,20 +8,24 @@
  *
  * @author alex_
  */
+
+import java.util.ArrayList;
+import java.util.Random;
+
 public class Concurso {
     private String nombre;
     private String fecha;
-    private int hora;
+    private String hora;
     private String fechaInicioInscrip;
     private String fehcaFinInscrip;
-    private Ciudad ciudad;
+    private String ciudad;
     private String lugar;
-    private String premios[];
-    private Auspiciante auspiciantes[];
+    private String[] premios;
+    private ArrayList<String> auspiciantesLista;
     private String dirigido;
     private String codigo;
 
-    public Concurso(String nombre, String fecha, int hora, String fechaInicioInscrip, String fehcaFinInscrip, Ciudad ciudad, String lugar, String[] premios, Auspiciante[] auspiciantes, String dirigido) {
+    public Concurso(String nombre, String fecha, String hora, String fechaInicioInscrip, String fehcaFinInscrip, String ciudad, String lugar, String[] premios, ArrayList<String> auspiciantes, String dirigido) {
         this.nombre = nombre;
         this.fecha = fecha;
         this.hora = hora;
@@ -30,8 +34,11 @@ public class Concurso {
         this.ciudad = ciudad;
         this.lugar = lugar;
         this.premios = premios;
-        this.auspiciantes = auspiciantes;
+        this.auspiciantesLista = auspiciantes;
         this.dirigido = dirigido;
+        short x  = (short) (100*Math.random()+1);
+        short y  = (short) (100*Math.random()+1);
+        this.codigo = nombre.substring(0,2) + x + ciudad.substring(0,3) + y + lugar.substring(-1);
     }
 
     public String getNombre() {
@@ -42,7 +49,7 @@ public class Concurso {
         return fecha;
     }
 
-    public int getHora() {
+    public String getHora() {
         return hora;
     }
 
@@ -54,7 +61,7 @@ public class Concurso {
         return fehcaFinInscrip;
     }
 
-    public Ciudad getCiudad() {
+    public String getCiudad() {
         return ciudad;
     }
 
@@ -66,8 +73,8 @@ public class Concurso {
         return premios;
     }
 
-    public Auspiciante[] getAuspiciantes() {
-        return auspiciantes;
+    public ArrayList<String> getAuspiciantesLista() {
+        return auspiciantesLista;
     }
 
     public String getDirigido() {
@@ -81,4 +88,7 @@ public class Concurso {
     public void inscribirParticipante(Dueño d, Mascota m){
         
     }
+    
+    
+    
 }
