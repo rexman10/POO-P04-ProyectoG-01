@@ -15,8 +15,8 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args){
         Ciudad prueba = new Ciudad("Guayaquil", "Guayas");
-        //System.out.println(prueba.getProvincia());
-        //System.out.println(prueba.getCodigo());
+        System.out.println(prueba.getProvincia());
+        System.out.println(prueba.getCodigo());
         
         Scanner input_texto = new Scanner(System.in);
         String[] arreglo = new String[3];
@@ -34,5 +34,6 @@ public class Main {
         
         Concurso c1  = new Concurso("Top Mascotas","7 Nov","16h00","25 Oct","2 Nov","Quito","Estadio local",arreglo,lista,"perros");
         
+        input_texto.close();
     }
 }

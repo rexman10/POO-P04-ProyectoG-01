@@ -38,7 +38,7 @@ public class Concurso {
         this.dirigido = dirigido;
         short x  = (short) (100*Math.random()+1);
         short y  = (short) (100*Math.random()+1);
-        this.codigo = nombre.substring(0,2) + x + ciudad.substring(0,3) + y + lugar.substring(-1);
+        this.codigo = nombre.substring(0,2) + x + ciudad.substring(0,3) + y + lugar.substring(0,3);
     }
 
     public String getNombre() {
