@@ -24,6 +24,8 @@ public class Mascota {
         this.fechaNacimiento = fechaNacimiento;
         this.urlFoto = urlFoto;
         this.dueño = dueño;
+        short x  = (short) (100*Math.random()+1);
+        codigo = tipoMascota + x + "-" + raza.substring(0,3);
     }
 
     public String getNombre() {

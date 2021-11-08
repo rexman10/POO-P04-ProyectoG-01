@@ -84,11 +84,13 @@ public class Concurso {
     public String getCodigo() {
         return codigo;
     }
-    
+
     public void inscribirParticipante(Dueño d, Mascota m){
         
     }
     
-    
+    public void administrarConcurso(){
+        
+    }
     
 }
