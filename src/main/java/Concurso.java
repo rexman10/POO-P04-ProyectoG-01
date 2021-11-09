@@ -18,14 +18,14 @@ public class Concurso {
     private String hora;
     private String fechaInicioInscrip;
     private String fehcaFinInscrip;
-    private String ciudad;
+    private Ciudad ciudad;
     private String lugar;
     private String[] premios;
     private ArrayList<String> auspiciantesLista;
     private String dirigido;
     private String codigo;
 
-    public Concurso(String nombre, String fecha, String hora, String fechaInicioInscrip, String fehcaFinInscrip, String ciudad, String lugar, String[] premios, ArrayList<String> auspiciantes, String dirigido) {
+    public Concurso(String nombre, String fecha, String hora, String fechaInicioInscrip, String fehcaFinInscrip, Ciudad ciudad, String lugar, String[] premios, ArrayList<String> auspiciantes, String dirigido) {
         this.nombre = nombre;
         this.fecha = fecha;
         this.hora = hora;
@@ -38,7 +38,7 @@ public class Concurso {
         this.dirigido = dirigido;
         short x  = (short) (100*Math.random()+1);
         short y  = (short) (100*Math.random()+1);
-        this.codigo = nombre.substring(0,2) + x + ciudad.substring(0,3) + y + lugar.substring(0,3);
+        this.codigo = nombre.substring(0,2) + x + ciudad.toString().substring(0,3) + y + lugar.substring(0,3);
     }
 
     public String getNombre() {
@@ -61,7 +61,7 @@ public class Concurso {
         return fehcaFinInscrip;
     }
 
-    public String getCiudad() {
+    public Ciudad getCiudad() {
         return ciudad;
     }
 

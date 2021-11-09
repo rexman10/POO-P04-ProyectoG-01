@@ -31,8 +31,9 @@ public class Main {
         
         lista.add("Dog Chow");
         lista.add("caninos");
-        
-        Concurso c1  = new Concurso("Top Mascotas","7 Nov","16h00","25 Oct","2 Nov","Quito","Estadio local",arreglo,lista,"perros");
+        Ciudad ciudad1 = new Ciudad("Quito", "Pichincha");
+
+        Concurso c1  = new Concurso("Top Mascotas","7 Nov","16h00","25 Oct","2 Nov",ciudad1,"Estadio local",arreglo,lista,"perros");
         
         input_texto.close();
     }
