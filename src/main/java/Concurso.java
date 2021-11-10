@@ -9,23 +9,22 @@
  * @author alex_
  */
 
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.Calendar;
 
 public class Concurso {
     private String nombre;
-    private String fecha;
+    private Calendar fecha;
     private String hora;
-    private String fechaInicioInscrip;
-    private String fehcaFinInscrip;
+    private Calendar fechaInicioInscrip;
+    private Calendar fehcaFinInscrip;
     private Ciudad ciudad;
     private String lugar;
-    private String[] premios;
-    private ArrayList<String> auspiciantesLista;
+    private Premio premios;
+    private Auspiciante auspiciante;
     private String dirigido;
     private String codigo;
 
-    public Concurso(String nombre, String fecha, String hora, String fechaInicioInscrip, String fehcaFinInscrip, Ciudad ciudad, String lugar, String[] premios, ArrayList<String> auspiciantes, String dirigido) {
+    public Concurso(String nombre, Calendar fecha, String hora, Calendar fechaInicioInscrip, Calendar fehcaFinInscrip, Ciudad ciudad, String lugar, Premio premios, Auspiciante auspiciantes, String dirigido) {
         this.nombre = nombre;
         this.fecha = fecha;
         this.hora = hora;
@@ -34,7 +33,7 @@ public class Concurso {
         this.ciudad = ciudad;
         this.lugar = lugar;
         this.premios = premios;
-        this.auspiciantesLista = auspiciantes;
+        this.auspiciante = auspiciantes;
         this.dirigido = dirigido;
         short x  = (short) (100*Math.random()+1);
         short y  = (short) (100*Math.random()+1);
@@ -45,7 +44,7 @@ public class Concurso {
         return nombre;
     }
 
-    public String getFecha() {
+    public Calendar getFecha() {
         return fecha;
     }
 
@@ -53,11 +52,11 @@ public class Concurso {
         return hora;
     }
 
-    public String getFechaInicioInscrip() {
+    public Calendar getFechaInicioInscrip() {
         return fechaInicioInscrip;
     }
 
-    public String getFehcaFinInscrip() {
+    public Calendar getFehcaFinInscrip() {
         return fehcaFinInscrip;
     }
 
@@ -69,12 +68,12 @@ public class Concurso {
         return lugar;
     }
 
-    public String[] getPremios() {
+    public Premio getPremios() {
         return premios;
     }
 
-    public ArrayList<String> getAuspiciantesLista() {
-        return auspiciantesLista;
+    public Auspiciante getAuspiciantesLista() {
+        return auspiciante;
     }
 
     public String getDirigido() {

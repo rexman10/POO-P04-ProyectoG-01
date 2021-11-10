@@ -10,31 +10,35 @@
  */
 
 import java.util.Scanner;
+import java.time.Month;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class Main {
     public static void main(String[] args){
-        Ciudad prueba = new Ciudad("Guayaquil", "Guayas");
-        System.out.println(prueba.getProvincia());
-        System.out.println(prueba.getCodigo());
+        //Ciudad prueba = new Ciudad("Guayaquil", "Guayas");
+        //System.out.println(prueba.getProvincia());
+        //System.out.println(prueba.getCodigo());
         
-        Scanner input_texto = new Scanner(System.in);
-        String[] arreglo = new String[3];
         
-        for (int i=0; i < 3; i++) {
-            System.out.println("Ingrese el " + (i+1) + " premio");
-            String dato = input_texto.nextLine();
-            arreglo[i] = dato;
-        }
-        
-        ArrayList<String> lista = new ArrayList<>();
-        
-        lista.add("Dog Chow");
-        lista.add("caninos");
         Ciudad ciudad1 = new Ciudad("Quito", "Pichincha");
 
-        Concurso c1  = new Concurso("Top Mascotas","7 Nov","16h00","25 Oct","2 Nov",ciudad1,"Estadio local",arreglo,lista,"perros");
+        Auspiciante auspiciante1 = new Auspiciante("dogchow", "calle1", "0959501881", ciudad1, "algo@gmial.com", "www.dogchow.com");
+
+        Premio premio1 = new Premio("200 dolares", "100 dolares", "50 dolares", auspiciante1);
+
+        Calendar fechaEvento = new GregorianCalendar(2021, Calendar.NOVEMBER, 7);
+
+        Calendar inicioInscrip = new GregorianCalendar(2021, Calendar.OCTOBER, 25);
+
+        Calendar finInscrip = new GregorianCalendar(2021, Calendar.NOVEMBER, 2);
+
+        Concurso c1  = new Concurso("Top Mascotas",fechaEvento,"16h00",inicioInscrip,finInscrip,ciudad1,"Estadio local",premio1,auspiciante1,"perros");
         
-        input_texto.close();
+        System.out.println(c1.getPremios());
+
+        //c1.inscribirParticipante(d, m);
+        //implementar la inscripcion de nuevos dueños con sus mascotas
     }
 }
