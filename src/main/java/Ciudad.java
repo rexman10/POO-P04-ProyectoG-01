@@ -12,6 +12,7 @@ public class Ciudad {
     private String nombre;
     private String provincia;
     private String codigo;
+    public static int contador = 0;
 
     public String getNombre() {
         return nombre;
@@ -34,6 +35,7 @@ public class Ciudad {
         this.nombre = nombre;
         this.provincia = provincia;
         this.codigo = nombre.substring(0, 2) + x + provincia.substring(1,3);
+        Ciudad.contador +=1;
     }
     
     
