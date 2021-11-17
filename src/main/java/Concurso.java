@@ -14,7 +14,7 @@ import java.util.Calendar;
 public class Concurso {
     private String nombre;
     private Calendar fecha;
-    private String hora;
+    private int hora;
     private Calendar fechaInicioInscrip;
     private Calendar fehcaFinInscrip;
     private Ciudad ciudad;
@@ -24,7 +24,7 @@ public class Concurso {
     private String dirigido;
     private String codigo;
 
-    public Concurso(String nombre, Calendar fecha, String hora, Calendar fechaInicioInscrip, Calendar fehcaFinInscrip, Ciudad ciudad, String lugar, Premio premios, Auspiciante auspiciantes, String dirigido) {
+    public Concurso(String nombre, Calendar fecha, int hora, Calendar fechaInicioInscrip, Calendar fehcaFinInscrip, Ciudad ciudad, String lugar, Premio premios, Auspiciante auspiciantes, String dirigido) {
         this.nombre = nombre;
         this.fecha = fecha;
         this.hora = hora;
@@ -48,7 +48,7 @@ public class Concurso {
         return fecha;
     }
 
-    public String getHora() {
+    public int getHora() {
         return hora;
     }
 
@@ -85,10 +85,6 @@ public class Concurso {
     }
 
     public void inscribirParticipante(Dueño d, Mascota m){
-        
-    }
-    
-    public void administrarConcurso(){
         
     }
     

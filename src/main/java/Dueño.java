@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 /*
@@ -100,32 +99,32 @@ public class Dueño extends Persona{
         this.email = email;
     }
     
-    public Dueño crearDueño(){
-        Scanner inputs = new Scanner(System.in);
-        System.out.println("Ingrese los nombres:");
-        String nombres = inputs.nextLine();
-        System.out.println("Ingrese la direccion:");
-        String direcc = inputs.nextLine();
-        System.out.println("Ingrese el telefono:");
-        String tel = inputs.nextLine();
-        System.out.println("Ingrese la ciudad: (Quito,Cuenca,Guayaquil)");
-        String city = inputs.nextLine();
-        System.out.println("Ingrese la cedula:");
-        String cid = inputs.nextLine();
-    }
+    //public Dueño crearDueño(){
+    //    Scanner inputs = new Scanner(System.in);
+    //    System.out.println("Ingrese los nombres:");
+    //    String nombres = inputs.nextLine();
+    //    System.out.println("Ingrese la direccion:");
+    //    String direcc = inputs.nextLine();
+    //    System.out.println("Ingrese el telefono:");
+    //   String tel = inputs.nextLine();
+    //    System.out.println("Ingrese la ciudad: (Quito,Cuenca,Guayaquil)");
+    //    String city = inputs.nextLine();
+    //    System.out.println("Ingrese la cedula:");
+    //    String cid = inputs.nextLine();
+    //}
 
-    public void editarDueño(){
-        System.out.println("Desea editar los datos del dueño: " + this.getNombre() + " con cedula de identidad: " + this.getCedula() + "? (S/N)");
-        Scanner input = new Scanner(System.in);
-        String entrada = input.nextLine();
-        if (entrada.equals("S")) {
-            Scanner textos = new Scanner(System.in);
-            System.out.println("Ingrese la nueva direccion:");
-            String direccion_nueva = textos.nextLine();
-            this.setDireccion(direccion_nueva);
-            System.out.println("Ingrese el nuevo numero de telefono:");
-            String tel_nuevo = textos.nextLine();
-            this.setTelefono(tel_nuevo);
+    //public void editarDueño(){
+    //    System.out.println("Desea editar los datos del dueño: " + this.getNombre() + " con cedula de identidad: " + this.getCedula() + "? (S/N)");
+    //    Scanner input = new Scanner(System.in);
+    //    String entrada = input.nextLine();
+    //    if (entrada.equals("S")) {
+    //        Scanner textos = new Scanner(System.in);
+    //        System.out.println("Ingrese la nueva direccion:");
+    //        String direccion_nueva = textos.nextLine();
+    //        this.setDireccion(direccion_nueva);
+    //        System.out.println("Ingrese el nuevo numero de telefono:");
+    //        String tel_nuevo = textos.nextLine();
+    //        this.setTelefono(tel_nuevo);
             //System.out.println("Ciudades disponibles:");
             //for (Ciudad c : lciudades) {
             //    System.out.println(c);
@@ -146,16 +145,16 @@ public class Dueño extends Persona{
             //    String ciudad_reemplazo = cities.nextLine();
             //    d.ciudad = ;
             //}
-            System.out.println("Ingrese el nuevo email: ");
-            String nuevo_email = textos.nextLine();
-            this.setEmail(nuevo_email);
+    //        System.out.println("Ingrese el nuevo email: ");
+    //        String nuevo_email = textos.nextLine();
+    //        this.setEmail(nuevo_email);
 
-            textos.close();
-        }
-        if (entrada.equals("N")){
-            System.out.println("No se ha editado ningun dueño");
-        }
-        input.close();
-    }
+    //        textos.close();
+    //    }
+    //    if (entrada.equals("N")){
+    //        System.out.println("No se ha editado ningun dueño");
+    //    }
+    //    input.close();
+    //}
     
 }

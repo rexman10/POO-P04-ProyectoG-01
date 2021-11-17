@@ -10,25 +10,110 @@
  */
 
 import java.util.Scanner;
-import java.time.Month;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-public class Main {
+public class Main { 
+
+    public static void inscribirParticipante(){
+
+    }
+    
+    public static void crearConcurso(){
+        Scanner concursos = new Scanner(System.in);
+        System.out.println("Ingrese el nombre del concurso:");
+        String n = concursos.nextLine();
+        System.out.println("Ingrese la fecha del concurso(dd/mm/aaaa):");
+        String linea = concursos.nextLine();
+        String[] datos = linea.split("/", 3);
+        int dia = Integer.valueOf(datos[0]);
+        int mes = Integer.valueOf(datos[1]);
+        int anio = Integer.valueOf(datos[2]);
+        Calendar f_evento = new GregorianCalendar(anio, mes, dia);
+        System.out.println("Ingrese la hora del concurso:");
+        String temp = concursos.nextLine();
+        int hora = Integer.valueOf(temp);
+        System.out.println("Ingrese la fecha de inicio de inscripciones(dd/mm/aaaa):");
+        String linea2 = concursos.nextLine();
+        String[] datos2 = linea.split("/", 3);
+        int dia2 = Integer.valueOf(datos[0]);
+        int mes2 = Integer.valueOf(datos[1]);
+        int anio2 = Integer.valueOf(datos[2]);
+        Calendar inicioInsc = new GregorianCalendar(anio2, mes2, dia2);
+        System.out.println("Ingrese la fecha de fin de inscripciones(dd/mm/aaaa):");
+        String linea3 = concursos.nextLine();
+        String[] datos3 = linea.split("/", 3);
+        int dia3 = Integer.valueOf(datos[0]);
+        int mes3 = Integer.valueOf(datos[1]);
+        int anio3 = Integer.valueOf(datos[2]);
+        Calendar finInsc = new GregorianCalendar(anio3, mes3, dia3);
+        System.out.println("Las ciudades disponibles son: ");
+        
+        //Concurso c = new Concurso(nombre, fecha, hora, fechaInicioInscrip, fehcaFinInscrip, ciudad, lugar, premios, auspiciantes, dirigido)
+        //return c;
+    }
+
+    public static void administrarConcurso(){
+        System.out.println("------------------Concursos------------------\nCrear concurso (1)\nInscribir participante (2)\nEliga una de las opciones del menu Concursos:");
+        Scanner input = new Scanner(System.in);
+        int entrada_user = input.nextInt();
+        switch (entrada_user) {
+            case 1:
+                crearConcurso();
+                break;
+
+            case 2:
+                inscribirParticipante();
+                break;
+
+            default:
+                break;
+        }
+        input.close();
+
+    }
+
+    public static void menuPrincipal(){
+        System.out.println("------------------Menu Principal------------------\nAdministrar concursos (1)\nAdministrar dueños (2)\nAdministrar mascotas (3)\nEliga una de las opciones del menu Concursos:");
+        Scanner menu = new Scanner(System.in);
+        int seleccion = menu.nextInt();
+        switch (seleccion) {
+            case 1:
+                Main.administrarConcurso();
+                break;
+            //case 2:
+            //    Main.administrarDueños();
+            //    break;
+            //case 3:
+            //    Main.administrarMascotas();
+            //    break;
+        }
+    }
     public static void main(String[] args){
         //Ciudad prueba = new Ciudad("Guayaquil", "Guayas");
         //System.out.println(prueba.getProvincia());
         //System.out.println(prueba.getCodigo());
-        
-        
+
+        //ArrayList<Ciudad> listaCiudades = new ArrayList<>();
+        //Ciudad Quito = new Ciudad("Quito", "Pichincha");
+        //Ciudad Guayaquil = new Ciudad("Guayaquil", "Guayas");
+        //Ciudad Cuenca = new Ciudad("Cuenca","Azuay");
+        //listaCiudades.add(Quito);
+        //listaCiudades.add(Guayaquil);
+        //listaCiudades.add(Cuenca);
+
+        ArrayList<Ciudad> listaCiudades = new ArrayList<>();
         Ciudad Quito = new Ciudad("Quito", "Pichincha");
-
         Ciudad Guayaquil = new Ciudad("Guayaquil", "Guayas");
-
         Ciudad Cuenca = new Ciudad("Cuenca","Azuay");
+        listaCiudades.add(Quito);
+        listaCiudades.add(Guayaquil);
+        listaCiudades.add(Cuenca);
+        
+        menuPrincipal();
 
-        Auspiciante auspiciante1 = new Auspiciante("dogchow", "calle1", "0959501881", Quito, "algo@gmial.com", "www.dogchow.com");
+        Auspiciante auspiciante1 = new Auspiciante("dogchow", "calle1", "0959501881",Quito, "algo@gmial.com", "www.dogchow.com");
 
         Premio premio_c1 = new Premio("200 dolares", "100 dolares", "50 dolares", auspiciante1);
 
@@ -38,14 +123,11 @@ public class Main {
 
         Calendar finInscrip = new GregorianCalendar(2021, Calendar.NOVEMBER, 2);
 
-        Concurso c1  = new Concurso("Top Mascotas",fechaEvento,"16h00",inicioInscrip,finInscrip,Quito,"Estadio local",premio_c1,auspiciante1,"Perro");
+        //System.out.println(inicioInscrip);
+
+        Concurso c1  = new Concurso("Top Mascotas",fechaEvento,16,inicioInscrip,finInscrip,Quito,"Estadio local",premio_c1,auspiciante1,"Perro");
         
         System.out.println(c1.getPremios());
-        
-        ArrayList<Ciudad> listaCiudades = new ArrayList<>();
-        listaCiudades.add(Quito);
-        listaCiudades.add(Guayaquil);
-        listaCiudades.add(Cuenca);
 
         ArrayList<Auspiciante> listaAuspiciantes = new ArrayList<>();
         listaAuspiciantes.add(auspiciante1);
@@ -103,13 +185,13 @@ public class Main {
         listaMascotas.add(m10);
 
 
-        d1.editarDueño();
+        //d1.editarDueño();
 
         System.out.println(d1);
         
-        
-        
-        
+
+
+
         //c1.inscribirParticipante(d, m);
         //implementar la inscripcion de nuevos dueños con sus mascotas
     }
