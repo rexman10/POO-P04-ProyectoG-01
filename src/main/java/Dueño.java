@@ -16,22 +16,39 @@ public class Dueño extends Persona{
     private String apellidos;
     private String email;
 
-    public Dueño(String cedula, String nombres, String apellidos, String direccion, String telefono, Ciudad ciudad, String email) {
-        super(nombres,direccion,telefono,ciudad);
+    public Dueño(String c){
+        super();
+        this.cedula = c;
+    }
+
+    public Dueño(String cedula, String nombre, String apellidos, String direccion, String telefono, Ciudad ciudad, String email) {
+        super(nombre,direccion,telefono,ciudad);
         this.cedula = cedula;
         this.apellidos = apellidos;
         this.email = email;
     }
 
+    @Override
+    public boolean equals(Object obj){
+        if (this == obj) {
+            return true;            
+        }
+        if (obj != null && obj instanceof Dueño) {
+            Dueño comparacion = (Dueño) obj;
+            return cedula.equals(comparacion.nombre);       
+        }
+        return false;
+    }
+
     public String toString(){
-        return "El dueño " + this.getNombres() + " con cedula " + this.getCedula() + " vive en " + this.getDireccion() + ". " + "Contacto: " + this.getTelefono();
+        return "El dueño " + this.getNombre() + " con cedula " + this.getCedula() + " vive en " + this.getDireccion() + ". " + "Contacto: " + this.getTelefono();
     }
 
     public String getCedula() {
         return cedula;
     }
 
-    public String getNombres() {
+    public String getNombre() {
         return nombre;
     }
 
@@ -83,8 +100,22 @@ public class Dueño extends Persona{
         this.email = email;
     }
     
+    public Dueño crearDueño(){
+        Scanner inputs = new Scanner(System.in);
+        System.out.println("Ingrese los nombres:");
+        String nombres = inputs.nextLine();
+        System.out.println("Ingrese la direccion:");
+        String direcc = inputs.nextLine();
+        System.out.println("Ingrese el telefono:");
+        String tel = inputs.nextLine();
+        System.out.println("Ingrese la ciudad: (Quito,Cuenca,Guayaquil)");
+        String city = inputs.nextLine();
+        System.out.println("Ingrese la cedula:");
+        String cid = inputs.nextLine();
+    }
+
     public void editarDueño(){
-        System.out.println("Desea editar los datos del dueño: " + this.getNombres() + " con cedula de identidad: " + this.getCedula() + "? (S/N)");
+        System.out.println("Desea editar los datos del dueño: " + this.getNombre() + " con cedula de identidad: " + this.getCedula() + "? (S/N)");
         Scanner input = new Scanner(System.in);
         String entrada = input.nextLine();
         if (entrada.equals("S")) {

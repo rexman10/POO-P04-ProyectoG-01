@@ -30,7 +30,7 @@ public class Main {
 
         Auspiciante auspiciante1 = new Auspiciante("dogchow", "calle1", "0959501881", Quito, "algo@gmial.com", "www.dogchow.com");
 
-        Premio premio1 = new Premio("200 dolares", "100 dolares", "50 dolares", auspiciante1);
+        Premio premio_c1 = new Premio("200 dolares", "100 dolares", "50 dolares", auspiciante1);
 
         Dueño d1 = new Dueño("0952645646", "Juan Alejandro", "Guadalupe Rosas", "Urb. La Romareda", "0959452918", Quito, "jaguadal@espol.edu.ec");
 
@@ -42,7 +42,7 @@ public class Main {
 
         Calendar finInscrip = new GregorianCalendar(2021, Calendar.NOVEMBER, 2);
 
-        Concurso c1  = new Concurso("Top Mascotas",fechaEvento,"16h00",inicioInscrip,finInscrip,Quito,"Estadio local",premio1,auspiciante1,"perros");
+        Concurso c1  = new Concurso("Top Mascotas",fechaEvento,"16h00",inicioInscrip,finInscrip,Quito,"Estadio local",premio_c1,auspiciante1,"Perro");
         
         System.out.println(c1.getPremios());
         

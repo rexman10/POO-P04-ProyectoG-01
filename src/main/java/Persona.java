@@ -14,11 +14,27 @@ public class Persona {
     protected String telefono;
     protected Ciudad ciudad;
 
+    public Persona(){
+        
+    }
+
     public Persona(String n, String d, String t, Ciudad c){
         this.nombre = n;
         this.direccion = d;
         this.telefono = t;
         this.ciudad = c;
+    }
+
+    @Override
+    public boolean equals(Object obj){
+        if (this == obj) {
+            return true;            
+        }
+        if (obj != null && obj instanceof Persona) {
+            Persona comparacion = (Persona) obj;
+            return nombre.equals(comparacion.nombre);       
+        }
+        return false;
     }
 
 }

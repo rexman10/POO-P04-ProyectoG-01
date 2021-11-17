@@ -30,6 +30,18 @@ public class Ciudad {
         return this.getNombre();
     }
     
+    @Override
+    public boolean equals(Object obj){
+        if (this == obj) {
+            return true;            
+        }
+        if (obj != null && obj instanceof Ciudad) {
+            Ciudad comparacion = (Ciudad) obj;
+            return nombre.equals(comparacion.nombre);       
+        }
+        return false;
+    }
+
     public Ciudad(String nombre, String provincia) {
         short x  = (short) (100*Math.random()+1);
         this.nombre = nombre;
