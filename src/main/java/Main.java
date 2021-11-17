@@ -25,7 +25,7 @@ public class Main {
         Ciudad Quito = new Ciudad("Quito", "Pichincha");
 
         Ciudad Guayaquil = new Ciudad("Guayaquil", "Guayas");
-        
+
         Ciudad Cuenca = new Ciudad("Cuenca","Azuay");
 
         Auspiciante auspiciante1 = new Auspiciante("dogchow", "calle1", "0959501881", Quito, "algo@gmial.com", "www.dogchow.com");
@@ -48,6 +48,8 @@ public class Main {
         
         ArrayList<Ciudad> listaCiudades = new ArrayList<>();
         listaCiudades.add(Quito);
+        listaCiudades.add(Guayaquil);
+        listaCiudades.add(Cuenca);
 
         ArrayList<Auspiciante> listaAuspiciantes = new ArrayList<>();
         listaAuspiciantes.add(auspiciante1);
@@ -57,6 +59,20 @@ public class Main {
 
         ArrayList<Dueño> listaDueños = new ArrayList<>();
         listaDueños.add(d1);
+
+        ArrayList<Mascota> listaMascotas = new ArrayList<>();
+        listaMascotas.add(m1);
+        listaMascotas.add(m2);
+        listaMascotas.add(m3);
+        listaMascotas.add(m4);
+        listaMascotas.add(m5);
+        listaMascotas.add(m6);
+        listaMascotas.add(m7);
+        listaMascotas.add(m8);
+        listaMascotas.add(m9);
+        listaMascotas.add(m10);
+
+
 
         d1.editarDueño();
 
