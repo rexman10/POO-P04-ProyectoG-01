@@ -24,6 +24,8 @@ public class Main {
         
         Ciudad Quito = new Ciudad("Quito", "Pichincha");
 
+        Ciudad Cuenca = new Ciudad("Cuenca","Azuay");
+
         Auspiciante auspiciante1 = new Auspiciante("dogchow", "calle1", "0959501881", Quito, "algo@gmial.com", "www.dogchow.com");
 
         Premio premio1 = new Premio("200 dolares", "100 dolares", "50 dolares", auspiciante1);
