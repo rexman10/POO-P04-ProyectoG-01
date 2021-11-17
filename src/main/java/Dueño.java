@@ -11,22 +11,15 @@ import java.util.Scanner;
  *
  * @author alex_
  */
-public class Dueño {
+public class Dueño extends Persona{
     private String cedula;
-    private String nombres;
     private String apellidos;
-    private String direccion;
-    private String telefono;
-    private Ciudad ciudad;
     private String email;
 
     public Dueño(String cedula, String nombres, String apellidos, String direccion, String telefono, Ciudad ciudad, String email) {
+        super(nombres,direccion,telefono,ciudad);
         this.cedula = cedula;
-        this.nombres = nombres;
         this.apellidos = apellidos;
-        this.direccion = direccion;
-        this.telefono = telefono;
-        this.ciudad = ciudad;
         this.email = email;
     }
 
@@ -39,7 +32,7 @@ public class Dueño {
     }
 
     public String getNombres() {
-        return nombres;
+        return nombre;
     }
 
     public String getApellidos() {
@@ -67,7 +60,7 @@ public class Dueño {
     }
 
     public void setNombres(String nombres) {
-        this.nombres = nombres;
+        this.nombre = nombres;
     }
 
     public void setApellidos(String apellidos) {

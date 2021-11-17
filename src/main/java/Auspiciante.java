@@ -8,20 +8,13 @@
  *
  * @author alex_
  */
-public class Auspiciante {
-    private String nombre;
-    private String direccion;
-    private String telefono;
-    private Ciudad ciudad;
+public class Auspiciante extends Persona{
     private String email;
     private String webPage;
     private String codigo;
 
     public Auspiciante(String nombre, String direccion, String telefono, Ciudad ciudad, String email, String webPage) {
-        this.nombre = nombre;
-        this.direccion = direccion;
-        this.telefono = telefono;
-        this.ciudad = ciudad;
+        super(nombre,direccion,telefono,ciudad);
         this.email = email;
         this.webPage = webPage;
     }
