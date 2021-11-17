@@ -19,64 +19,102 @@ public class Main {
     public static void inscribirParticipante(){
 
     }
-    
+    static Scanner todo = new Scanner(System.in);
+
+    public static Premio crearPremio(){
+        //Scanner premios = new Scanner(System.in);
+        System.out.println("Ingrese el primer premio:");
+        String p1 = todo.nextLine();
+        System.out.println("Ingrese el segundo premio:");
+        String p2 = todo.nextLine();
+        System.out.println("Ingrese el tercer premio:");
+        String p3 = todo.nextLine();
+        Premio p = new Premio(p1, p2, p3);
+        //premios.close();
+        return p;
+    }
+
     public static void crearConcurso(){
-        Scanner concursos = new Scanner(System.in);
+        //Scanner concursos = new Scanner(System.in);
         System.out.println("Ingrese el nombre del concurso:");
-        String n = concursos.nextLine();
+        String n = todo.nextLine();
         System.out.println("Ingrese la fecha del concurso(dd/mm/aaaa):");
-        String linea = concursos.nextLine();
+        String linea = todo.nextLine();
         String[] datos = linea.split("/", 3);
         int dia = Integer.valueOf(datos[0]);
         int mes = Integer.valueOf(datos[1]);
         int anio = Integer.valueOf(datos[2]);
         Calendar f_evento = new GregorianCalendar(anio, mes, dia);
         System.out.println("Ingrese la hora del concurso:");
-        String temp = concursos.nextLine();
+        String temp = todo.nextLine();
         int hora = Integer.valueOf(temp);
         System.out.println("Ingrese la fecha de inicio de inscripciones(dd/mm/aaaa):");
-        String linea2 = concursos.nextLine();
+        String linea2 = todo.nextLine();
         String[] datos2 = linea.split("/", 3);
         int dia2 = Integer.valueOf(datos[0]);
         int mes2 = Integer.valueOf(datos[1]);
         int anio2 = Integer.valueOf(datos[2]);
         Calendar inicioInsc = new GregorianCalendar(anio2, mes2, dia2);
         System.out.println("Ingrese la fecha de fin de inscripciones(dd/mm/aaaa):");
-        String linea3 = concursos.nextLine();
+        String linea3 = todo.nextLine();
         String[] datos3 = linea.split("/", 3);
         int dia3 = Integer.valueOf(datos[0]);
         int mes3 = Integer.valueOf(datos[1]);
         int anio3 = Integer.valueOf(datos[2]);
         Calendar finInsc = new GregorianCalendar(anio3, mes3, dia3);
         System.out.println("Las ciudades disponibles son: ");
-        //Concurso c = new Concurso(nombre, fecha, hora, fechaInicioInscrip, fehcaFinInscrip, ciudad, lugar, premios, auspiciantes, dirigido)
+        // falta poner las ciudades aqui
+        System.out.println("Ingrese el lugar del evento:");
+        String local = todo.nextLine();
+        Premio p = crearPremio();
+        System.out.println("Los auspiciantes disponibles son:");
+        // falta poner los auspiciantes aqui
+        System.out.println("A quien estara dirigido el concurso?\nPerros (1)\nGatos (2)\nTodos (3)\nDirigido a: ");
+        System.out.println(todo.hasNextLine());
+        int entry = todo.nextInt();
+        switch (entry) {
+            case 1:
+                String perr = "Perros";
+                break;
+            case 2:
+                String gat = "Gatos";
+                break;
+            case 3:
+                String tod = "Todos";
+                break;
+        }
+        //concursos.close();
+        //Concurso c = new Concurso(n, f_evento, hora, inicioInsc, finInsc, ciudad, local, p, auspiciantes, entry);
         //return c;
     }
 
     public static void administrarConcurso(){
         System.out.println("------------------Concursos------------------\nCrear concurso (1)\nInscribir participante (2)\nEliga una de las opciones del menu Concursos:");
-        Scanner input = new Scanner(System.in);
-        int entrada_user = input.nextInt();
+        //Scanner input = new Scanner(System.in);
+        int entrada_user = todo.nextInt();
+        todo.nextLine();
         switch (entrada_user) {
             case 1:
                 crearConcurso();
+                todo.nextLine();
                 break;
 
             case 2:
                 inscribirParticipante();
+                todo.nextLine();
                 break;
 
             default:
                 break;
         }
-        input.close();
+        //input.close();
 
     }
 
     public static void menuPrincipal(){
         System.out.println("------------------Menu Principal------------------\nAdministrar concursos (1)\nAdministrar dueños (2)\nAdministrar mascotas (3)\nEliga una de las opciones del menu Concursos:");
-        Scanner menu = new Scanner(System.in);
-        int seleccion = menu.nextInt();
+        //Scanner menu = new Scanner(System.in);
+        int seleccion = todo.nextInt();
         switch (seleccion) {
             case 1:
                 Main.administrarConcurso();
@@ -88,6 +126,7 @@ public class Main {
             //    Main.administrarMascotas();
             //    break;
         }
+        //menu.close();
     }
     public static void main(String[] args){
         //Ciudad prueba = new Ciudad("Guayaquil", "Guayas");
@@ -110,14 +149,15 @@ public class Main {
         Premio premio_c1 = new Premio("200 dolares", "100 dolares", "50 dolares", auspiciante1);
 
         Calendar fechaEvento = new GregorianCalendar(2021, Calendar.NOVEMBER, 7);
-
         Calendar inicioInscrip = new GregorianCalendar(2021, Calendar.OCTOBER, 25);
-
         Calendar finInscrip = new GregorianCalendar(2021, Calendar.NOVEMBER, 2);
+        Concurso c1  = new Concurso("Top Mascotas",fechaEvento,16,inicioInscrip,finInscrip,Quito,"Estadio local",premio_c1,auspiciante1,"Todos");
 
-        //System.out.println(inicioInscrip);
 
-        Concurso c1  = new Concurso("Top Mascotas",fechaEvento,16,inicioInscrip,finInscrip,Quito,"Estadio local",premio_c1,auspiciante1,"Perro");
+        Calendar fc2 = new GregorianCalendar(2021, Calendar.NOVEMBER, 30);
+        Calendar fin2 = new GregorianCalendar(2021, Calendar.NOVEMBER, 15);
+        Calendar ffin2 = new GregorianCalendar(2021, Calendar.NOVEMBER, 25);
+        Concurso c2 = new Concurso("Firulais", fc2, 20, fin2, ffin2, Cuenca, "Casa comunal", premio_c1, auspiciante1, "Perros");
         
         System.out.println(c1.getPremios());
 
@@ -151,7 +191,6 @@ public class Main {
         listaDueños.add(d9);
         listaDueños.add(d10);
 
-
         ArrayList<Mascota> listaMascotas = new ArrayList<>();
 
         Mascota m1 = new Mascota("fifi", "gato", "persa", "25-12-2017", "f1", d1);
@@ -176,13 +215,9 @@ public class Main {
         listaMascotas.add(m9);
         listaMascotas.add(m10);
 
-
         //d1.editarDueño();
 
         System.out.println(d1);
-        
-
-
 
         //c1.inscribirParticipante(d, m);
         //implementar la inscripcion de nuevos dueños con sus mascotas

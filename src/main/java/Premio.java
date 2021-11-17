@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,6 +15,12 @@ public class Premio {
     private String premio2;
     private String premio3;
     private Auspiciante auspiciante;
+    
+    public Premio(String premio1, String premio2, String premio3) {
+        this.premio1 = premio1;
+        this.premio2 = premio2;
+        this.premio3 = premio3;
+    }
 
     public Premio(String premio1, String premio2, String premio3, Auspiciante auspiciante) {
         this.premio1 = premio1;
@@ -21,6 +29,7 @@ public class Premio {
         this.auspiciante = auspiciante;
     }
     
+
     public String getPremio1() {
         return premio1;
     }
