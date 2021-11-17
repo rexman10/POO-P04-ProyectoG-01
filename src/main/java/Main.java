@@ -49,7 +49,6 @@ public class Main {
         int anio3 = Integer.valueOf(datos[2]);
         Calendar finInsc = new GregorianCalendar(anio3, mes3, dia3);
         System.out.println("Las ciudades disponibles son: ");
-        
         //Concurso c = new Concurso(nombre, fecha, hora, fechaInicioInscrip, fehcaFinInscrip, ciudad, lugar, premios, auspiciantes, dirigido)
         //return c;
     }
@@ -95,22 +94,15 @@ public class Main {
         //System.out.println(prueba.getProvincia());
         //System.out.println(prueba.getCodigo());
 
-        //ArrayList<Ciudad> listaCiudades = new ArrayList<>();
-        //Ciudad Quito = new Ciudad("Quito", "Pichincha");
-        //Ciudad Guayaquil = new Ciudad("Guayaquil", "Guayas");
-        //Ciudad Cuenca = new Ciudad("Cuenca","Azuay");
-        //listaCiudades.add(Quito);
-        //listaCiudades.add(Guayaquil);
-        //listaCiudades.add(Cuenca);
-
-        ArrayList<Ciudad> listaCiudades = new ArrayList<>();
         Ciudad Quito = new Ciudad("Quito", "Pichincha");
         Ciudad Guayaquil = new Ciudad("Guayaquil", "Guayas");
         Ciudad Cuenca = new Ciudad("Cuenca","Azuay");
-        listaCiudades.add(Quito);
-        listaCiudades.add(Guayaquil);
-        listaCiudades.add(Cuenca);
-        
+        //ArrayList<Ciudad> listaCiudades = new ArrayList<>();
+        //listaCiudades.add(Quito);
+        //listaCiudades.add(Guayaquil);
+        //listaCiudades.add(Cuenca);
+        //System.out.println(Ciudad.listaCiudades);
+
         menuPrincipal();
 
         Auspiciante auspiciante1 = new Auspiciante("dogchow", "calle1", "0959501881",Quito, "algo@gmial.com", "www.dogchow.com");

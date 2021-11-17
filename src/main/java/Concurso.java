@@ -9,6 +9,7 @@
  * @author alex_
  */
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class Concurso {
