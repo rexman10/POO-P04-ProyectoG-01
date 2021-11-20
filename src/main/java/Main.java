@@ -22,7 +22,117 @@ public class Main {
     public static ArrayList<Concurso> listaConcursos;
 
     public static void inscribirParticipante(){
+        // sacar del main y corregir el menu principal
+    }
 
+    public static boolean dueñoExiste(String id){
+        Dueño busqueda = new Dueño(id);
+        return listaDueños.contains(busqueda);
+    }
+
+    public static Dueño encontrarDueño(String cedula) {
+        for(Dueño dueño : listaDueños) {
+            if(dueño.getCedula().equals(cedula)) {
+                return dueño;
+            }
+        }
+        return null;
+    }
+
+    public static void consultaDueño(String cedula){
+        Dueño busqueda =  new Dueño(cedula);
+
+        if (listaDueños.contains(busqueda)){
+          int indice = listaDueños.indexOf(busqueda);
+          Dueño veh = listaDueños.get(indice);
+          System.out.println(veh);
+        }else{
+          System.out.println("No se encuentra persona con esa cedula");
+        }
+    }
+
+    public static boolean auspicianteExiste(String codigo){
+        Auspiciante busqueda = new Auspiciante(codigo);
+        return listaAspiciantes.contains(busqueda);
+    }
+
+    public static Auspiciante encontrarAuspiciante(String codigo) {
+        for(Auspiciante ausp : listaAspiciantes) {
+            if(ausp.getCodigo().equals(codigo)) {
+                return ausp;
+            }
+        }
+        return null;
+    }
+
+    public static void consultaAuspiciante(String cod){
+        Auspiciante busqueda =  new Auspiciante(cod);
+        if (listaAspiciantes.contains(busqueda)){
+          int indice = listaAspiciantes.indexOf(busqueda);
+          Auspiciante auspiciante = listaAspiciantes.get(indice);
+          System.out.println(auspiciante);
+        } else {
+          System.out.println("No se encuentra auspiciante con ese codigo");
+        }
+    }
+
+    public static boolean concursoExiste(String codigo){
+        Concurso busqueda = new Concurso(codigo);
+        return listaConcursos.contains(busqueda);
+    }
+
+    public static Concurso encontrarConcurso(String codigo) {
+        for(Concurso conc : listaConcursos) {
+            if(conc.getCodigo().equals(codigo)) {
+                return conc;
+            }
+        }
+        return null;
+    }
+
+    public static void consultaConcurso(String cod){
+        Concurso busqueda =  new Concurso(cod);
+        if (listaConcursos.contains(busqueda)){
+          int indice = listaConcursos.indexOf(busqueda);
+          Concurso conc = listaConcursos.get(indice);
+          System.out.println(conc);
+        } else {
+          System.out.println("No se encuentra concurso con ese codigo");
+        }
+    }
+
+    public static boolean mascotaExiste(String codigo){
+        Mascota busqueda = new Mascota(codigo);
+        return listaMascotas.contains(busqueda);
+    }
+
+    public static Mascota encontrarMascota(String codigo) {
+        for(Mascota pet : listaMascotas) {
+            if(pet.getCodigo().equals(codigo)) {
+                return pet;
+            }
+        }
+        return null;
+    }
+
+    public static void consultaMascota(String cod){
+        Mascota busqueda =  new Mascota(cod);
+        if (listaMascotas.contains(busqueda)){
+          int indice = listaMascotas.indexOf(busqueda);
+          Mascota pet = listaMascotas.get(indice);
+          System.out.println(pet);
+        } else {
+          System.out.println("No se encuentra mascota con ese codigo");
+        }
+    }
+
+    public static Ciudad encontrarCiudad(String nombre) {
+        for(Ciudad city : listaCiudades) {
+            if(city.getNombre().equals(nombre)) {
+                return city;
+            }
+        }
+        return null;
     }
 
     public static void cargarBaseDatos(){
@@ -30,6 +140,13 @@ public class Main {
         Ciudad Quito = new Ciudad("Quito", "Pichincha");
         Ciudad Guayaquil = new Ciudad("Guayaquil", "Guayas");
         Ciudad Cuenca = new Ciudad("Cuenca","Azuay");
+
+        ArrayList<Ciudad> lCities = new ArrayList<>();
+        lCities.add(Quito);
+        lCities.add(Guayaquil);
+        lCities.add(Cuenca);
+
+        listaCiudades = lCities;
 
         Dueño d1 = new Dueño("0952645646", "Juan Alejandro", "Guadalupe Rosas", "Urb. La Romareda", "0959452918", Quito, "jaguadal@espol.edu.ec");
         Dueño d2 = new Dueño("0929548980", "Christofer Paul", "Espin Huayamabe", "Pradera 2", "0995725182", Guayaquil, "cpespin@espol.edu.ec");
@@ -42,42 +159,50 @@ public class Main {
         Dueño d9 = new Dueño("0982837282", "Abraham Orlando", "Hernandez Calzada", "Yanuncay", "0960704725", Cuenca, "ejemplo9@gmail.com");
         Dueño d10 = new Dueño("0928493859", "Jose Juan", "Sebastián Vazquez", "Urdesa", "0976082153", Guayaquil, "ejemplo10@gmail.com");
 
-        Mascota m1 = new Mascota("fifi", "gato", "persa", "25-12-2017", "f1", d1);
-        Mascota m2 = new Mascota("coco", "perro", "labrador", "15-02-2016", "f2", d2);
-        Mascota m3 = new Mascota("max", "perro", "golden retriever", "20-05-2016", "f3", d3);
-        Mascota m4 = new Mascota("rocky", "gato", "siames", "30-12-2019", "f4", d4);
-        Mascota m5 = new Mascota("toby", "perro", "chihuahua", "20-10-2018", "f5", d5);
-        Mascota m6 = new Mascota("simba", "gato", "ragdoll", "15-11-2019", "f6", d6);
-        Mascota m7 = new Mascota("leo", "gato", "bengala", "10-04-2020", "f7", d7);
-        Mascota m8 = new Mascota("lucas", "perro", "caniche", "05-06-2012", "f8", d8);
-        Mascota m9 = new Mascota("zeus", "perro", "poodle", "01-07-2014", "f9", d9);
-        Mascota m10 = new Mascota("bruno", "gato", "munchkin", "01-09-2018", "f10", d10);
+        Mascota m1 = new Mascota("Fifi", "gato", "persa", "25-12-2017", "f1", d1);
+        Mascota m2 = new Mascota("Coco", "perro", "labrador", "15-02-2016", "f2", d2);
+        Mascota m3 = new Mascota("Max", "perro", "golden retriever", "20-05-2016", "f3", d3);
+        Mascota m4 = new Mascota("Rocky", "gato", "siames", "30-12-2019", "f4", d4);
+        Mascota m5 = new Mascota("Toby", "perro", "chihuahua", "20-10-2018", "f5", d5);
+        Mascota m6 = new Mascota("Simba", "gato", "ragdoll", "15-11-2019", "f6", d6);
+        Mascota m7 = new Mascota("Leo", "gato", "bengala", "10-04-2020", "f7", d7);
+        Mascota m8 = new Mascota("Lucas", "perro", "caniche", "05-06-2012", "f8", d8);
+        Mascota m9 = new Mascota("Zeus", "perro", "poodle", "01-07-2014", "f9", d9);
+        Mascota m10 = new Mascota("Bruno", "gato", "munchkin", "01-09-2018", "f10", d10);
         
-        ArrayList<Mascota> listaMascotas = new ArrayList<>();
-        listaMascotas.add(m1);
-        listaMascotas.add(m2);
-        listaMascotas.add(m3);
-        listaMascotas.add(m4);
-        listaMascotas.add(m5);
-        listaMascotas.add(m6);
-        listaMascotas.add(m7);
-        listaMascotas.add(m8);
-        listaMascotas.add(m9);
-        listaMascotas.add(m10);
+        ArrayList<Mascota> lM = new ArrayList<>();
+        lM.add(m1);
+        lM.add(m2);
+        lM.add(m3);
+        lM.add(m4);
+        lM.add(m5);
+        lM.add(m6);
+        lM.add(m7);
+        lM.add(m8);
+        lM.add(m9);
+        lM.add(m10);
 
-        ArrayList<Dueño> listaDueños = new ArrayList<>();
-        listaDueños.add(d1);
-        listaDueños.add(d2);
-        listaDueños.add(d3);
-        listaDueños.add(d4);
-        listaDueños.add(d5);
-        listaDueños.add(d6);
-        listaDueños.add(d7);
-        listaDueños.add(d8);
-        listaDueños.add(d9);
-        listaDueños.add(d10);
+        listaMascotas = lM;
 
-        Auspiciante auspiciante1 = new Auspiciante("dogchow", "calle1", "0959501881",Quito, "algo@gmial.com", "www.dogchow.com");
+        ArrayList<Dueño> lD = new ArrayList<>();
+        lD.add(d1);
+        lD.add(d2);
+        lD.add(d3);
+        lD.add(d4);
+        lD.add(d5);
+        lD.add(d6);
+        lD.add(d7);
+        lD.add(d8);
+        lD.add(d9);
+        lD.add(d10);
+
+        listaDueños = lD;
+
+        Auspiciante auspiciante1 = new Auspiciante("DogChow", "calle1", "0959501881",Quito, "algo@gmial.com", "www.dogchow.com");
+        ArrayList<Auspiciante> lA = new ArrayList<>();
+        lA.add(auspiciante1);
+
+        listaAspiciantes = lA;
 
         Premio premio_c1 = new Premio("200 dolares", "100 dolares", "50 dolares", auspiciante1);
 
@@ -86,20 +211,16 @@ public class Main {
         Calendar finInscrip = new GregorianCalendar(2021, Calendar.NOVEMBER, 2);
         Concurso c1  = new Concurso("Top Mascotas",fechaEvento,16,inicioInscrip,finInscrip,Quito,"Estadio local",premio_c1,auspiciante1,"Todos");
 
-
         Calendar fc2 = new GregorianCalendar(2021, Calendar.NOVEMBER, 30);
         Calendar fin2 = new GregorianCalendar(2021, Calendar.NOVEMBER, 15);
         Calendar ffin2 = new GregorianCalendar(2021, Calendar.NOVEMBER, 25);
         Concurso c2 = new Concurso("Firulais", fc2, 20, fin2, ffin2, Cuenca, "Casa comunal", premio_c1, auspiciante1, "Perros");
-        
-        
 
-        ArrayList<Auspiciante> listaAuspiciantes = new ArrayList<>();
-        listaAuspiciantes.add(auspiciante1);
+        ArrayList<Concurso> lConc = new ArrayList<>();
+        lConc.add(c1);
+        lConc.add(c2);
 
-        ArrayList<Concurso> listadoConcursos = new ArrayList<>();
-        listadoConcursos.add(c1);
-        listadoConcursos.add(c2);
+        listaConcursos = lConc;
     }
 
     static Scanner todo = new Scanner(System.in);
@@ -146,33 +267,55 @@ public class Main {
         int anio3 = Integer.valueOf(datos[2]);
         Calendar finInsc = new GregorianCalendar(anio3, mes3, dia3);
         System.out.println("Las ciudades disponibles son: ");
-        // falta poner las ciudades aqui
+        for (Ciudad c : listaCiudades) {
+            System.out.println(c);
+        }
+        System.out.println("Ingrese la ciudad donde se realizara el concurso:");
+        String city = todo.nextLine();
+        Ciudad city_conc = encontrarCiudad(city);
         System.out.println("Ingrese el lugar del evento:");
         String local = todo.nextLine();
         Premio p = crearPremio();
         System.out.println("Los auspiciantes disponibles son:");
-        // falta poner los auspiciantes aqui
+        for (Auspiciante ausp : listaAspiciantes) {
+            System.out.println(ausp);
+        }
+        System.out.println("Ingrese el codigo del asupiciante que patrocinara el concurso:");
+        String cod_ausp = todo.nextLine();
+        Auspiciante ausp_conc = encontrarAuspiciante(cod_ausp);
         System.out.println("A quien estara dirigido el concurso?\nPerros (1)\nGatos (2)\nTodos (3)\nDirigido a: ");
         System.out.println(todo.hasNextLine());
         int entry = todo.nextInt(); // arreglar el enum
-        switch (entry) {
-            case 1:
-                String perr = "Perros";
-                break;
-            case 2:
-                String gat = "Gatos";
-                break;
-            case 3:
-                String tod = "Todos";
-                break;
+        String dirig = "";
+        if (entry == 1) {
+            dirig = "Perros";
         }
+        else if (entry == 2) {
+            dirig = "Gatos";
+        }
+        else if (entry == 3) {
+            dirig = "Todos";
+        }
+
+        listaConcursos.add(new Concurso(n, f_evento, hora, inicioInsc, finInsc, city_conc, local, p, ausp_conc, dirig));
+        System.out.println("Se ha creado el concurso:");
+        int ultimo = listaCiudades.size();
+        System.out.println(listaConcursos.get(ultimo - 1));
+    }
         //concursos.close();
         //Concurso c = new Concurso(n, f_evento, hora, inicioInsc, finInsc, ciudad, local, p, auspiciantes, entry);
         //return c;
-    }
+    
 
     public static void administrarConcurso(){
-        System.out.println("------------------Concursos------------------\nCrear concurso (1)\nInscribir participante (2)\nEliga una de las opciones del menu Concursos:");
+        System.out.println("------------------Concursos------------------");
+        //for (int i = 0; i < listaConcursos.size(); i++) {
+        //    System.out.println(listaConcursos.get(i));
+        //}
+        for (Concurso conc : listaConcursos) {
+            System.out.println(conc);
+        }
+        System.out.println("Crear concurso (1)\nInscribir participante (2)\nEliga una de las opciones del menu Concursos:");
         //Scanner input = new Scanner(System.in);
         int entrada_user = todo.nextInt();
         todo.nextLine();
@@ -184,60 +327,56 @@ public class Main {
 
             case 2:
                 inscribirParticipante();
-                todo.nextLine();
+                //todo.nextLine();
+                System.out.println("Ingrese el codigo del concurso al que desea inscribirse:");
+                String cod = todo.nextLine();
+                //System.out.println(cod);
                 break;
 
             default:
                 break;
         }
         //input.close();
-
     }
 
     public static void menuPrincipal(){
-        System.out.println("------------------Menu Principal------------------\nAdministrar concursos (1)\nAdministrar dueños (2)\nAdministrar mascotas (3)\nEliga una de las opciones del menu Concursos:");
-        //Scanner menu = new Scanner(System.in);
+        System.out.println("------------------Menu Principal------------------\nAdministrar concursos (1)\nAdministrar dueños (2)\nAdministrar mascotas (3)\nEliga una de las opciones del Menu Principal:");
         int seleccion = todo.nextInt();
         switch (seleccion) {
             case 1:
-                Main.administrarConcurso();
+                administrarConcurso();
                 break;
             //case 2:
-            //    Main.administrarDueños();
+            //    administrarDueños();
             //    break;
             //case 3:
-            //    Main.administrarMascotas();
+            //    administrarMascotas();
             //    break;
         }
-        //menu.close();
     }
+
     public static void main(String[] args){
-        Main.cargarBaseDatos();
-        
-        //Ciudad prueba = new Ciudad("Guayaquil", "Guayas");
-        //System.out.println(prueba.getProvincia());
-        //System.out.println(prueba.getCodigo());
+        cargarBaseDatos();
+        //System.out.println(dueñoExiste("0601783715"));
+        //consultaPersona("0927482472");
 
-        
-        //ArrayList<Ciudad> listaCiudades = new ArrayList<>();
-        //listaCiudades.add(Quito);
-        //listaCiudades.add(Guayaquil);
-        //listaCiudades.add(Cuenca);
-        //System.out.println(Ciudad.listaCiudades);
-
+        //System.out.println("Iteracion de lista de mascotas");
+        //for (Mascota pet : listaMascotas) {
+        //    System.out.println(pet);
+        //}
         menuPrincipal();
 
 
 
         
-        System.out.println(listaConcursos.get(0).getPremios());
+        //System.out.println(listaConcursos.get(0).getPremios());
         
 
         
 
         //d1.editarDueño();
 
-        System.out.println(listaDueños.get(0));
+        //System.out.println(listaDueños.get(0));
 
         //c1.inscribirParticipante(d, m);
         //implementar la inscripcion de nuevos dueños con sus mascotas

@@ -17,6 +17,10 @@ public class Mascota {
     private Dueño dueño;
     private String codigo;
 
+    public Mascota(String codigo) {
+        this.codigo = codigo;
+    }
+
     public Mascota(String nombre, String tipoMascota, String raza, String fechaNacimiento, String urlFoto, Dueño dueño) {
         this.nombre = nombre;
         this.tipoMascota = tipoMascota;
@@ -25,7 +29,11 @@ public class Mascota {
         this.urlFoto = urlFoto;
         this.dueño = dueño;
         short x  = (short) (100*Math.random()+1);
-        codigo = tipoMascota + x + "-" + raza.substring(0,3);
+        codigo = tipoMascota.toUpperCase() + x + "-" + raza.substring(0,3).toUpperCase();
+    }
+
+    public String toString(){
+        return "Nombre:" + this.getNombre() + " - Dueño:" + this.getDueño();
     }
 
     public String getNombre() {

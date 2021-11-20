@@ -13,10 +13,33 @@ public class Auspiciante extends Persona{
     private String webPage;
     private String codigo;
 
+    public Auspiciante(String codigo) {
+        this.codigo = codigo;
+    }
+
     public Auspiciante(String nombre, String direccion, String telefono, Ciudad ciudad, String email, String webPage) {
         super(nombre,direccion,telefono,ciudad);
         this.email = email;
         this.webPage = webPage;
+        short x  = (short) (100*Math.random()+1);
+        codigo = webPage.substring(4, 7).toUpperCase() + x;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj != null &&  obj instanceof Auspiciante) {
+            Auspiciante other = (Auspiciante) obj;
+            return codigo.equals(other.codigo);
+        }
+        
+        return false;
+    }
+
+    public String toString() {
+        return "Nombre:" + this.getNombre() + " - Codigo:" + this.getCodigo();
     }
 
     public String getNombre() {

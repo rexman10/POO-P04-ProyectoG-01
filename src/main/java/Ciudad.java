@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -47,8 +46,8 @@ public class Ciudad {
         short x  = (short) (100*Math.random()+1);
         this.nombre = nombre;
         this.provincia = provincia;
-        this.codigo = nombre.substring(0, 2) + x + provincia.substring(1,3);
+        this.codigo = nombre.substring(0, 2).toUpperCase() + x + provincia.substring(1,3).toUpperCase();
         
     }
-    
+
 }

@@ -25,16 +25,5 @@ public class Persona {
         this.ciudad = c;
     }
 
-    @Override
-    public boolean equals(Object obj){
-        if (this == obj) {
-            return true;            
-        }
-        if (obj != null && obj instanceof Persona) {
-            Persona comparacion = (Persona) obj;
-            return nombre.equals(comparacion.nombre);       
-        }
-        return false;
-    }
 
 }

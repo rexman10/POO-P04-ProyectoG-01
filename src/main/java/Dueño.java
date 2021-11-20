@@ -1,4 +1,3 @@
-import java.util.Scanner;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -28,19 +27,20 @@ public class Dueño extends Persona{
     }
 
     @Override
-    public boolean equals(Object obj){
+    public boolean equals(Object obj) {
         if (this == obj) {
-            return true;            
+            return true;
         }
-        if (obj != null && obj instanceof Dueño) {
-            Dueño comparacion = (Dueño) obj;
-            return cedula.equals(comparacion.nombre);       
+        if (obj != null &&  obj instanceof Dueño) {
+            Dueño other = (Dueño) obj;
+            return cedula.equals(other.cedula);
         }
+        
         return false;
     }
 
     public String toString(){
-        return "El dueño " + this.getNombre() + " con cedula " + this.getCedula() + " vive en " + this.getDireccion() + ". " + "Contacto: " + this.getTelefono();
+        return this.getNombre() + " con cedula " + this.getCedula();
     }
 
     public String getCedula() {

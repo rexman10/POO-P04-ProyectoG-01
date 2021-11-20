@@ -24,6 +24,12 @@ public class Concurso {
     private Auspiciante auspiciante;
     private String dirigido;
     private String codigo;
+    private ArrayList<Dueño> dueñosInscritos;
+    private ArrayList<Mascota> mascotasInscritas;
+
+    public Concurso(String codigo) {
+        this.codigo = codigo;
+    }
 
     public Concurso(String nombre, Calendar fecha, int hora, Calendar fechaInicioInscrip, Calendar fehcaFinInscrip, Ciudad ciudad, String lugar, Premio premios, Auspiciante auspiciantes, String dirigido) {
         this.nombre = nombre;
@@ -38,9 +44,19 @@ public class Concurso {
         this.dirigido = dirigido;
         short x  = (short) (100*Math.random()+1);
         short y  = (short) (100*Math.random()+1);
-        this.codigo = nombre.substring(0,2) + x + ciudad.toString().substring(0,3) + y + lugar.substring(0,3);
+        String passcode = nombre.substring(0,2) + x + ciudad.toString().substring(0,3) + y + lugar.substring(0,3);
+        this.codigo = passcode.toUpperCase();
     }
 
+    public String toString(){
+        return "Concurso: " + this.getNombre() + " - Codigo: " + this.getCodigo();
+    }
+
+    public void inscribirConcursante(Dueño d, Mascota m) {
+        this.dueñosInscritos.add(d);
+        this.mascotasInscritas.add(m);
+    }
+    
     public String getNombre() {
         return nombre;
     }
