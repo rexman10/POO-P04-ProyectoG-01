@@ -315,7 +315,7 @@ public class Main {
         for (Concurso conc : listaConcursos) {
             System.out.println(conc);
         }
-        System.out.println("Crear concurso (1)\nInscribir participante (2)\nEliga una de las opciones del menu Concursos:");
+        System.out.println("Crear concurso (1)\nInscribir participante (2)\nRegresar al Menu Principal(3)\nEliga una de las opciones del menu Concursos:");
         //Scanner input = new Scanner(System.in);
         int entrada_user = todo.nextInt();
         todo.nextLine();
@@ -333,7 +333,8 @@ public class Main {
                 //System.out.println(cod);
                 break;
 
-            default:
+            case 3:
+                regresarMenuPrincipal();
                 break;
         }
         //input.close();
@@ -353,6 +354,10 @@ public class Main {
             //    administrarMascotas();
             //    break;
         }
+    }
+
+    public static void regresarMenuPrincipal() {
+        menuPrincipal();
     }
 
     public static void main(String[] args){
