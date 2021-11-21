@@ -1,3 +1,6 @@
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -12,7 +15,7 @@ public class Mascota {
     private String nombre;
     private String tipoMascota;
     private String raza;
-    private String fechaNacimiento;
+    private Calendar fechaNacimiento;
     private String urlFoto;
     private Dueño dueño;
     private String codigo;
@@ -25,7 +28,12 @@ public class Mascota {
         this.nombre = nombre;
         this.tipoMascota = tipoMascota;
         this.raza = raza;
-        this.fechaNacimiento = fechaNacimiento;
+        String[] datos = fechaNacimiento.split("-", 3);
+        int dia = Integer.valueOf(datos[0]);
+        int mes = Integer.valueOf(datos[1]);
+        int anio = Integer.valueOf(datos[2]);
+        Calendar birth = new GregorianCalendar(anio, mes, dia);
+        this.fechaNacimiento = birth;
         this.urlFoto = urlFoto;
         this.dueño = dueño;
         short x  = (short) (100*Math.random()+1);
@@ -48,7 +56,7 @@ public class Mascota {
         return raza;
     }
 
-    public String getFechaNacimiento() {
+    public Calendar getFechaNacimiento() {
         return fechaNacimiento;
     }
 

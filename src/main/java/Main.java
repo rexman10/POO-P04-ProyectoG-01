@@ -268,14 +268,14 @@ public class Main {
                 objetivo.setDireccion(new_direccion);
             } 
             System.out.println("Desea editar el telefono? (S/N)");
-            String elec2 = todo.nextLine();
+            String elec2 = todo.nextLine().toUpperCase();
             if (elec2.equals("S")) {
                 System.out.println("Escriba el nuevo telefono:");
                 String new_telefono = todo.nextLine();
                 objetivo.setTelefono(new_telefono);
             } 
             System.out.println("Desea editar el email? (S/N)");
-            String elec3 = todo.nextLine();
+            String elec3 = todo.nextLine().toUpperCase();
             if (elec3.equals("S")) {
                 System.out.println("Escriba el nuevo email:");
                 String new_mail = todo.nextLine();
@@ -355,17 +355,17 @@ public class Main {
         int hora = Integer.valueOf(temp);
         System.out.println("Ingrese la fecha de inicio de inscripciones(dd/mm/aaaa):");
         String linea2 = todo.nextLine();
-        String[] datos2 = linea.split("/", 3);
-        int dia2 = Integer.valueOf(datos[0]);
-        int mes2 = Integer.valueOf(datos[1]);
-        int anio2 = Integer.valueOf(datos[2]);
+        String[] datos2 = linea2.split("/", 3);
+        int dia2 = Integer.valueOf(datos2[0]);
+        int mes2 = Integer.valueOf(datos2[1]);
+        int anio2 = Integer.valueOf(datos2[2]);
         Calendar inicioInsc = new GregorianCalendar(anio2, mes2, dia2);
         System.out.println("Ingrese la fecha de fin de inscripciones(dd/mm/aaaa):");
         String linea3 = todo.nextLine();
-        String[] datos3 = linea.split("/", 3);
-        int dia3 = Integer.valueOf(datos[0]);
-        int mes3 = Integer.valueOf(datos[1]);
-        int anio3 = Integer.valueOf(datos[2]);
+        String[] datos3 = linea3.split("/", 3);
+        int dia3 = Integer.valueOf(datos3[0]);
+        int mes3 = Integer.valueOf(datos3[1]);
+        int anio3 = Integer.valueOf(datos3[2]);
         Calendar finInsc = new GregorianCalendar(anio3, mes3, dia3);
         System.out.println("Las ciudades disponibles son: ");
         for (Ciudad c : listaCiudades) {
@@ -459,6 +459,68 @@ public class Main {
 
             case 3:
                 regresarMenuPrincipal();
+                todo.nextLine();
+                break;
+        }
+    }
+
+    public static void crearMascota() {
+        System.out.println("Creacion de una nueva mascota:");
+        System.out.println("Ingrese el nombre:");
+        String name = todo.nextLine();
+        System.out.println("Ingrese el tipo de mascota (Perro/Gato):");
+        String type = todo.nextLine();
+        System.out.println("Ingrese la raza de su mascota:");
+        String raza_pet = todo.nextLine();
+        System.out.println("Ingrese la fecha de nacimiento (dd-mm-aaaa):");
+        String nacimiento = todo.nextLine();
+        System.out.println("Ingrese el url de la foto:");
+        String link = todo.nextLine();
+        System.out.println("Ingrese la cedula del dueño de la mascota");
+        String cedula_dueño = todo.nextLine();
+        Dueño d = encontrarDueño(cedula_dueño);
+        listaMascotas.add(new Mascota(name, type, raza_pet, nacimiento, link, d));
+        System.out.println("La mascota ha sido agregada.");
+        System.out.println();
+        administrarMascotas();
+    }
+
+    public static void eliminarMascota() {
+        System.out.println("Escriba el codigo de la mascota a eliminar");
+        String id_pet = todo.nextLine();
+        Mascota m = encontrarMascota(id_pet);
+        int indice = listaMascotas.indexOf(m);
+        listaMascotas.remove(indice);
+        System.out.println("La mascota " + m.getNombre() + " fue eliminada.");
+        System.out.println();
+        administrarMascotas();
+
+
+    }
+
+    public static void administrarMascotas() {
+        System.out.println("------------------Mascotas------------------");
+        for (Mascota m : listaMascotas) {
+            System.out.println(m);
+        }
+        System.out.println();
+        System.out.println("Crear mascota (1)\nEliminar mascota (2)\nRegresar al Menu Principal (3)\nEliga una de las opciones del menu Dueños:");
+        int entrada_user = todo.nextInt();
+        todo.nextLine();
+        switch (entrada_user) {
+            case 1:
+                crearMascota();
+                todo.nextLine();
+                break;
+
+            case 2:
+                eliminarMascota();
+                todo.nextLine();
+                break;
+
+            case 3:
+                regresarMenuPrincipal();
+                todo.nextLine();
                 break;
         }
     }
@@ -469,13 +531,18 @@ public class Main {
         switch (seleccion) {
             case 1:
                 administrarConcurso();
+                todo.nextLine();
                 break;
             case 2:
                 administrarDueños();
+                todo.nextLine();
                 break;
-            //case 3:
-            //    administrarMascotas();
-            //    break;
+            case 3:
+                administrarMascotas();
+                todo.nextLine();
+                break;
+            case 4:
+                break;
         }
     }
 
@@ -488,9 +555,7 @@ public class Main {
 
 
         //menuPrincipal();
-
-        administrarDueños();
-        
+        menuPrincipal();
         //System.out.println(listaConcursos.get(0).getPremios());
         
 
