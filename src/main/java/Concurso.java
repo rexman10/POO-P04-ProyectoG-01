@@ -24,7 +24,6 @@ public class Concurso {
     private Auspiciante auspiciante;
     private String dirigido;
     private String codigo;
-    private ArrayList<Dueño> dueñosInscritos;
     private ArrayList<Mascota> mascotasInscritas;
 
     public Concurso(String codigo) {
@@ -46,14 +45,15 @@ public class Concurso {
         short y  = (short) (100*Math.random()+1);
         String passcode = nombre.substring(0,2) + x + ciudad.toString().substring(0,3) + y + lugar.substring(0,3);
         this.codigo = passcode.toUpperCase();
+        ArrayList<Mascota> inscritos = new ArrayList<>();
+        mascotasInscritas = inscritos;
     }
 
     public String toString(){
         return "Concurso: " + this.getNombre() + " - Codigo: " + this.getCodigo();
     }
 
-    public void inscribirConcursante(Dueño d, Mascota m) {
-        this.dueñosInscritos.add(d);
+    public void inscribirMascota(Mascota m) {
         this.mascotasInscritas.add(m);
     }
     
@@ -101,8 +101,7 @@ public class Concurso {
         return codigo;
     }
 
-    public void inscribirParticipante(Dueño d, Mascota m){
-        
+    public ArrayList<Mascota> getListaConcursantes() {
+        return this.mascotasInscritas;
     }
-    
 }

@@ -33,7 +33,7 @@ public class Mascota {
     }
 
     public String toString(){
-        return "Nombre:" + this.getNombre() + " - Dueño:" + this.getDueño();
+        return "Nombre:" + this.getNombre() + " - Codigo:" + this.getCodigo() + " - Dueño:" + this.getDueño();
     }
 
     public String getNombre() {

@@ -21,9 +21,6 @@ public class Main {
     public static ArrayList<Ciudad> listaCiudades;
     public static ArrayList<Concurso> listaConcursos;
 
-    public static void inscribirParticipante(){
-        // sacar del main y corregir el menu principal
-    }
 
     public static boolean dueñoExiste(String id){
         Dueño busqueda = new Dueño(id);
@@ -159,16 +156,16 @@ public class Main {
         Dueño d9 = new Dueño("0982837282", "Abraham Orlando", "Hernandez Calzada", "Yanuncay", "0960704725", Cuenca, "ejemplo9@gmail.com");
         Dueño d10 = new Dueño("0928493859", "Jose Juan", "Sebastián Vazquez", "Urdesa", "0976082153", Guayaquil, "ejemplo10@gmail.com");
 
-        Mascota m1 = new Mascota("Fifi", "gato", "persa", "25-12-2017", "f1", d1);
-        Mascota m2 = new Mascota("Coco", "perro", "labrador", "15-02-2016", "f2", d2);
-        Mascota m3 = new Mascota("Max", "perro", "golden retriever", "20-05-2016", "f3", d3);
-        Mascota m4 = new Mascota("Rocky", "gato", "siames", "30-12-2019", "f4", d4);
-        Mascota m5 = new Mascota("Toby", "perro", "chihuahua", "20-10-2018", "f5", d5);
-        Mascota m6 = new Mascota("Simba", "gato", "ragdoll", "15-11-2019", "f6", d6);
-        Mascota m7 = new Mascota("Leo", "gato", "bengala", "10-04-2020", "f7", d7);
-        Mascota m8 = new Mascota("Lucas", "perro", "caniche", "05-06-2012", "f8", d8);
-        Mascota m9 = new Mascota("Zeus", "perro", "poodle", "01-07-2014", "f9", d9);
-        Mascota m10 = new Mascota("Bruno", "gato", "munchkin", "01-09-2018", "f10", d10);
+        Mascota m1 = new Mascota("Fifi", "Gato", "persa", "25-12-2017", "f1", d1);
+        Mascota m2 = new Mascota("Coco", "Perro", "labrador", "15-02-2016", "f2", d2);
+        Mascota m3 = new Mascota("Max", "Perro", "golden retriever", "20-05-2016", "f3", d3);
+        Mascota m4 = new Mascota("Rocky", "Gato", "siames", "30-12-2019", "f4", d4);
+        Mascota m5 = new Mascota("Toby", "Perro", "chihuahua", "20-10-2018", "f5", d5);
+        Mascota m6 = new Mascota("Simba", "Gato", "ragdoll", "15-11-2019", "f6", d6);
+        Mascota m7 = new Mascota("Leo", "Gato", "bengala", "10-04-2020", "f7", d7);
+        Mascota m8 = new Mascota("Lucas", "Perro", "caniche", "05-06-2012", "f8", d8);
+        Mascota m9 = new Mascota("Zeus", "Perro", "poodle", "01-07-2014", "f9", d9);
+        Mascota m10 = new Mascota("Bruno", "Gato", "munchkin", "01-09-2018", "f10", d10);
         
         ArrayList<Mascota> lM = new ArrayList<>();
         lM.add(m1);
@@ -214,7 +211,7 @@ public class Main {
         Calendar fc2 = new GregorianCalendar(2021, Calendar.NOVEMBER, 30);
         Calendar fin2 = new GregorianCalendar(2021, Calendar.NOVEMBER, 15);
         Calendar ffin2 = new GregorianCalendar(2021, Calendar.NOVEMBER, 25);
-        Concurso c2 = new Concurso("Firulais", fc2, 20, fin2, ffin2, Cuenca, "Casa comunal", premio_c1, auspiciante1, "Perros");
+        Concurso c2 = new Concurso("Firulais", fc2, 20, fin2, ffin2, Cuenca, "Casa comunal", premio_c1, auspiciante1, "Gatos");
 
         ArrayList<Concurso> lConc = new ArrayList<>();
         lConc.add(c1);
@@ -237,6 +234,56 @@ public class Main {
         //premios.close();
         return p;
     }
+
+    public static void inscribirParticipante(){
+        Calendar hoy = Calendar.getInstance();
+        System.out.println();
+        System.out.println("Concursos disponibles para inscripcion:");
+        for (Concurso conc : listaConcursos) {
+            if (conc.getFehcaFinInscrip().after(hoy)) {
+                System.out.println(conc);
+            }
+        }
+        System.out.println();
+        System.out.println("Ingrese el codigo del concurso al que desea inscribirse:");
+        String cod = todo.nextLine();
+        Concurso objetivo = encontrarConcurso(cod);
+        System.out.println();
+        System.out.println("Se inscribira al concurso " + objetivo);
+        String comparison = objetivo.getDirigido();
+        System.out.println("------------------Mascotas Disponibles------------------");
+        if (comparison == "Todos") {
+            for (Mascota pet : listaMascotas) {
+                    System.out.println(pet);
+                }
+        }
+        if (comparison == "Perros") {
+            for (Mascota pet : listaMascotas) {
+                if (pet.getTipoMascota().equals("Perro")) {
+                    System.out.println(pet);
+                }
+            }         
+        }
+        if (comparison == "Gatos") {
+            for (Mascota pet : listaMascotas) {
+                if (pet.getTipoMascota().equals("Gato")) {
+                    System.out.println(pet);
+                }
+            }
+        }
+
+        System.out.println();
+        System.out.println("Escriba el codigo de su mascota:");
+        String mascota_code = todo.nextLine().toUpperCase();
+        Mascota pet = encontrarMascota(mascota_code);
+        objetivo.inscribirMascota(pet);
+        System.out.println("Se ha inscrito a " + pet.getNombre() + " en el concurso " + objetivo.getNombre());
+        System.out.println();
+        menuPrincipal();
+        //int indice = objetivo.getListaConcursantes().indexOf(encontrarMascota(mascota_code));
+        //System.out.println(objetivo.getListaConcursantes().get(indice));
+    }
+
 
     public static void crearConcurso(){
         //Scanner concursos = new Scanner(System.in);
@@ -302,19 +349,14 @@ public class Main {
         int ultimo = listaCiudades.size();
         System.out.println(listaConcursos.get(ultimo - 1));
     }
-        //concursos.close();
-        //Concurso c = new Concurso(n, f_evento, hora, inicioInsc, finInsc, ciudad, local, p, auspiciantes, entry);
-        //return c;
     
 
     public static void administrarConcurso(){
         System.out.println("------------------Concursos------------------");
-        //for (int i = 0; i < listaConcursos.size(); i++) {
-        //    System.out.println(listaConcursos.get(i));
-        //}
         for (Concurso conc : listaConcursos) {
             System.out.println(conc);
         }
+        System.out.println();
         System.out.println("Crear concurso (1)\nInscribir participante (2)\nRegresar al Menu Principal(3)\nEliga una de las opciones del menu Concursos:");
         //Scanner input = new Scanner(System.in);
         int entrada_user = todo.nextInt();
@@ -327,9 +369,7 @@ public class Main {
 
             case 2:
                 inscribirParticipante();
-                //todo.nextLine();
-                System.out.println("Ingrese el codigo del concurso al que desea inscribirse:");
-                String cod = todo.nextLine();
+                todo.nextLine();
                 //System.out.println(cod);
                 break;
 
@@ -369,9 +409,13 @@ public class Main {
         //for (Mascota pet : listaMascotas) {
         //    System.out.println(pet);
         //}
+
         menuPrincipal();
-
-
+        //System.out.println(listaConcursos.get(0).getFehcaFinInscrip());
+        //System.out.println();
+        //System.out.println(Calendar.getInstance());
+        //System.out.println();
+        //System.out.println(listaConcursos.get(1).getFehcaFinInscrip().after(Calendar.getInstance()));
 
         
         //System.out.println(listaConcursos.get(0).getPremios());
