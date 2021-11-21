@@ -99,19 +99,6 @@ public class Dueño extends Persona{
         this.email = email;
     }
     
-    //public Dueño crearDueño(){
-    //    Scanner inputs = new Scanner(System.in);
-    //    System.out.println("Ingrese los nombres:");
-    //    String nombres = inputs.nextLine();
-    //    System.out.println("Ingrese la direccion:");
-    //    String direcc = inputs.nextLine();
-    //    System.out.println("Ingrese el telefono:");
-    //   String tel = inputs.nextLine();
-    //    System.out.println("Ingrese la ciudad: (Quito,Cuenca,Guayaquil)");
-    //    String city = inputs.nextLine();
-    //    System.out.println("Ingrese la cedula:");
-    //    String cid = inputs.nextLine();
-    //}
 
     //public void editarDueño(){
     //    System.out.println("Desea editar los datos del dueño: " + this.getNombre() + " con cedula de identidad: " + this.getCedula() + "? (S/N)");

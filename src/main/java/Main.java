@@ -235,6 +235,60 @@ public class Main {
         return p;
     }
 
+    public static void crearDueño(){
+        System.out.println("Creacion de un nuevo dueño:");
+        System.out.println("Ingrese la cedula:");
+        String cid = todo.nextLine();
+        System.out.println("Ingrese los nombres:");
+        String nombres = todo.nextLine();
+        System.out.println("Ingrese los apellidos:");
+        String apellidos = todo.nextLine();
+        System.out.println("Ingrese la direccion:");
+        String direcc = todo.nextLine();
+        System.out.println("Ingrese el telefono:");
+        String tel = todo.nextLine();
+        System.out.println("Ingrese la ciudad: (Quito,Cuenca,Guayaquil)");
+        String city = todo.nextLine();
+        Ciudad c = encontrarCiudad(city);
+        System.out.println("Ingrese su email:");
+        String mail = todo.nextLine();
+        listaDueños.add(new Dueño(cid, nombres, apellidos, direcc, tel, c, mail));
+    }
+
+    public static void editarDueño() {
+        System.out.println("Ingrese la cedula del dueño a editar:");
+        String cedula = todo.nextLine();
+        if (dueñoExiste(cedula)) {
+            Dueño objetivo = encontrarDueño(cedula);
+            System.out.println("Desea editar la direccion? (S/N)");
+            String elec1 = todo.nextLine().toUpperCase();
+            if (elec1.equals("S")) {
+                System.out.println("Escriba la nueva direccion:");
+                String new_direccion = todo.nextLine();
+                objetivo.setDireccion(new_direccion);
+            } 
+            System.out.println("Desea editar el telefono? (S/N)");
+            String elec2 = todo.nextLine();
+            if (elec2.equals("S")) {
+                System.out.println("Escriba el nuevo telefono:");
+                String new_telefono = todo.nextLine();
+                objetivo.setTelefono(new_telefono);
+            } 
+            System.out.println("Desea editar el email? (S/N)");
+            String elec3 = todo.nextLine();
+            if (elec3.equals("S")) {
+                System.out.println("Escriba el nuevo email:");
+                String new_mail = todo.nextLine();
+                objetivo.setEmail(new_mail);
+            } 
+        System.out.println("Se han guardado los cambios");
+        administrarDueños();
+        } else {
+            System.out.println("El dueño especificado no existe.");
+            administrarDueños();
+        }
+    }
+
     public static void inscribirParticipante(){
         Calendar hoy = Calendar.getInstance();
         System.out.println();
@@ -322,7 +376,6 @@ public class Main {
         Ciudad city_conc = encontrarCiudad(city);
         System.out.println("Ingrese el lugar del evento:");
         String local = todo.nextLine();
-        Premio p = crearPremio();
         System.out.println("Los auspiciantes disponibles son:");
         for (Auspiciante ausp : listaAspiciantes) {
             System.out.println(ausp);
@@ -331,8 +384,8 @@ public class Main {
         String cod_ausp = todo.nextLine();
         Auspiciante ausp_conc = encontrarAuspiciante(cod_ausp);
         System.out.println("A quien estara dirigido el concurso?\nPerros (1)\nGatos (2)\nTodos (3)\nDirigido a: ");
-        System.out.println(todo.hasNextLine());
-        int entry = todo.nextInt(); // arreglar el enum
+        //System.out.println(todo.hasNextLine());
+        int entry = todo.nextInt();
         String dirig = "";
         if (entry == 1) {
             dirig = "Perros";
@@ -343,11 +396,16 @@ public class Main {
         else if (entry == 3) {
             dirig = "Todos";
         }
-
+        System.out.println();
+        System.out.println("Especifique los preimos del concurso:");
+        todo.nextLine();
+        Premio p = crearPremio();
+        p.setAuspiciante(ausp_conc);
         listaConcursos.add(new Concurso(n, f_evento, hora, inicioInsc, finInsc, city_conc, local, p, ausp_conc, dirig));
         System.out.println("Se ha creado el concurso:");
         int ultimo = listaCiudades.size();
         System.out.println(listaConcursos.get(ultimo - 1));
+        menuPrincipal();
     }
     
 
@@ -357,7 +415,7 @@ public class Main {
             System.out.println(conc);
         }
         System.out.println();
-        System.out.println("Crear concurso (1)\nInscribir participante (2)\nRegresar al Menu Principal(3)\nEliga una de las opciones del menu Concursos:");
+        System.out.println("Crear concurso (1)\nInscribir participante (2)\nRegresar al Menu Principal (3)\nEliga una de las opciones del menu Concursos:");
         //Scanner input = new Scanner(System.in);
         int entrada_user = todo.nextInt();
         todo.nextLine();
@@ -370,7 +428,6 @@ public class Main {
             case 2:
                 inscribirParticipante();
                 todo.nextLine();
-                //System.out.println(cod);
                 break;
 
             case 3:
@@ -380,6 +437,32 @@ public class Main {
         //input.close();
     }
 
+    public static void administrarDueños() {
+        System.out.println("------------------Dueños------------------");
+        for (Dueño d : listaDueños) {
+            System.out.println(d);
+        }
+        System.out.println();
+        System.out.println("Crear dueño (1)\nEditar dueño (2)\nRegresar al Menu Principal (3)\nEliga una de las opciones del menu Dueños:");
+        int entrada_user = todo.nextInt();
+        todo.nextLine();
+        switch (entrada_user) {
+            case 1:
+                crearDueño();
+                todo.nextLine();
+                break;
+
+            case 2:
+                editarDueño();
+                todo.nextLine();
+                break;
+
+            case 3:
+                regresarMenuPrincipal();
+                break;
+        }
+    }
+
     public static void menuPrincipal(){
         System.out.println("------------------Menu Principal------------------\nAdministrar concursos (1)\nAdministrar dueños (2)\nAdministrar mascotas (3)\nEliga una de las opciones del Menu Principal:");
         int seleccion = todo.nextInt();
@@ -387,9 +470,9 @@ public class Main {
             case 1:
                 administrarConcurso();
                 break;
-            //case 2:
-            //    administrarDueños();
-            //    break;
+            case 2:
+                administrarDueños();
+                break;
             //case 3:
             //    administrarMascotas();
             //    break;
@@ -402,21 +485,11 @@ public class Main {
 
     public static void main(String[] args){
         cargarBaseDatos();
-        //System.out.println(dueñoExiste("0601783715"));
-        //consultaPersona("0927482472");
 
-        //System.out.println("Iteracion de lista de mascotas");
-        //for (Mascota pet : listaMascotas) {
-        //    System.out.println(pet);
-        //}
 
-        menuPrincipal();
-        //System.out.println(listaConcursos.get(0).getFehcaFinInscrip());
-        //System.out.println();
-        //System.out.println(Calendar.getInstance());
-        //System.out.println();
-        //System.out.println(listaConcursos.get(1).getFehcaFinInscrip().after(Calendar.getInstance()));
+        //menuPrincipal();
 
+        administrarDueños();
         
         //System.out.println(listaConcursos.get(0).getPremios());
         
@@ -427,7 +500,5 @@ public class Main {
 
         //System.out.println(listaDueños.get(0));
 
-        //c1.inscribirParticipante(d, m);
-        //implementar la inscripcion de nuevos dueños con sus mascotas
     }
 }

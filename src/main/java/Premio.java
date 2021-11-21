@@ -29,6 +29,10 @@ public class Premio {
     }
     
 
+    public void setAuspiciante(Auspiciante a) {
+        this.auspiciante = a;
+    }
+
     public String getPremio1() {
         return premio1;
     }
