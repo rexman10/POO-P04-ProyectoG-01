@@ -253,6 +253,7 @@ public class Main {
         System.out.println("Ingrese su email:");
         String mail = todo.nextLine();
         listaDueños.add(new Dueño(cid, nombres, apellidos, direcc, tel, c, mail));
+        administrarDueños();
     }
 
     public static void editarDueño() {
@@ -504,7 +505,7 @@ public class Main {
             System.out.println(m);
         }
         System.out.println();
-        System.out.println("Crear mascota (1)\nEliminar mascota (2)\nRegresar al Menu Principal (3)\nEliga una de las opciones del menu Dueños:");
+        System.out.println("Crear mascota (1)\nEliminar mascota (2)\nRegresar al Menu Principal (3)\nEliga una de las opciones del menu Mascotas:");
         int entrada_user = todo.nextInt();
         todo.nextLine();
         switch (entrada_user) {
