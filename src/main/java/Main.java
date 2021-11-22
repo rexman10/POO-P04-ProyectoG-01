@@ -477,10 +477,18 @@ public class Main {
         String nacimiento = todo.nextLine();
         System.out.println("Ingrese el url de la foto:");
         String link = todo.nextLine();
+        System.out.println("------------------Dueños disponibles------------------");
+        for (Dueño d : listaDueños) {
+            System.out.println(d);
+        }
         System.out.println("Ingrese la cedula del dueño de la mascota");
         String cedula_dueño = todo.nextLine();
         Dueño d = encontrarDueño(cedula_dueño);
-        listaMascotas.add(new Mascota(name, type, raza_pet, nacimiento, link, d));
+        Mascota resultado = new Mascota(name, type, raza_pet, nacimiento, link, d);
+        while (mascotaExiste(resultado.getCodigo())) {
+            resultado.generarCodigo(resultado);
+        }
+        listaMascotas.add(resultado);
         System.out.println("La mascota ha sido agregada.");
         System.out.println();
         administrarMascotas();

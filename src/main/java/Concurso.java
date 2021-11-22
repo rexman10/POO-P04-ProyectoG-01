@@ -25,6 +25,7 @@ public class Concurso {
     private String dirigido;
     private String codigo;
     private ArrayList<Mascota> mascotasInscritas;
+    private ArrayList<Mascota> listaGanadores;
 
     public Concurso(String codigo) {
         this.codigo = codigo;
@@ -46,7 +47,10 @@ public class Concurso {
         String passcode = nombre.substring(0,2) + x + ciudad.toString().substring(0,3) + y + lugar.substring(0,3);
         this.codigo = passcode.toUpperCase();
         ArrayList<Mascota> inscritos = new ArrayList<>();
+        ArrayList<Mascota> ganadores = new ArrayList<>();
+
         mascotasInscritas = inscritos;
+        listaGanadores = ganadores;
     }
 
     public String toString(){
@@ -103,5 +107,9 @@ public class Concurso {
 
     public ArrayList<Mascota> getListaConcursantes() {
         return this.mascotasInscritas;
+    }
+
+    public ArrayList<Mascota> getListaGanadores() {
+        return this.listaGanadores;
     }
 }

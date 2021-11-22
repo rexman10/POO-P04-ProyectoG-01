@@ -36,8 +36,18 @@ public class Mascota {
         this.fechaNacimiento = birth;
         this.urlFoto = urlFoto;
         this.dueño = dueño;
-        short x  = (short) (100*Math.random()+1);
+        short x  = (short) (1000*Math.random()+1);
         codigo = tipoMascota.toUpperCase() + x + "-" + raza.substring(0,3).toUpperCase();
+    }
+
+    public void setCodigo(String code) {
+        this.codigo = code;
+    }
+
+    public void generarCodigo(Mascota m) {
+        short x  = (short) (1000*Math.random()+1);
+        codigo = this.tipoMascota.toUpperCase() + x + "-" + this.raza.substring(0,3).toUpperCase();
+        this.setCodigo(codigo);
     }
 
     public String toString(){
