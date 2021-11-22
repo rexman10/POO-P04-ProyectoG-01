@@ -13,6 +13,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.Random;
 
 public class Main { 
     public static ArrayList<Dueño> listaDueños;
@@ -20,6 +21,7 @@ public class Main {
     public static ArrayList<Auspiciante> listaAspiciantes;
     public static ArrayList<Ciudad> listaCiudades;
     public static ArrayList<Concurso> listaConcursos;
+    public static ArrayList<Mascota> listaAptos;
 
 
     public static boolean dueñoExiste(String id){
@@ -309,12 +311,14 @@ public class Main {
         System.out.println("------------------Mascotas Disponibles------------------");
         if (comparison == "Todos") {
             for (Mascota pet : listaMascotas) {
+                    listaAptos.add(pet);
                     System.out.println(pet);
                 }
         }
         if (comparison == "Perros") {
             for (Mascota pet : listaMascotas) {
                 if (pet.getTipoMascota().equals("Perro")) {
+                    listaAptos.add(pet);
                     System.out.println(pet);
                 }
             }         
@@ -322,6 +326,7 @@ public class Main {
         if (comparison == "Gatos") {
             for (Mascota pet : listaMascotas) {
                 if (pet.getTipoMascota().equals("Gato")) {
+                    listaAptos.add(pet);
                     System.out.println(pet);
                 }
             }
@@ -551,8 +556,32 @@ public class Main {
                 todo.nextLine();
                 break;
             case 4:
+                ganadores();
+                todo.nextLine();
                 break;
         }
+    }
+
+    public static void ganadores(){
+        Random r = new Random();
+        ArrayList<Mascota> l_masCopia = (ArrayList<Mascota>) listaMascotas.clone();
+        //ArrayList<Mascota> l_owo = (ArrayList<Mascota>) listaAptos.clone();
+        //System.out.println(l_owo);
+        int long_mascotas = listaMascotas.size();
+        int i_primer_lugar = r.nextInt((long_mascotas-1));
+        Mascota primer_lugar = l_masCopia.get(i_primer_lugar);
+        l_masCopia.remove(primer_lugar);
+        long_mascotas = l_masCopia.size();
+
+        int i_segundo_lugar = r.nextInt(long_mascotas-1);
+        Mascota segundo_lugar = l_masCopia.get(i_segundo_lugar);
+        l_masCopia.remove(segundo_lugar);
+        long_mascotas = l_masCopia.size();
+        
+        int i_tercer_luar = r.nextInt(long_mascotas-1);
+        Mascota tercer_lugar = l_masCopia.get(i_tercer_luar);
+
+        System.out.println("primer lugar: "+primer_lugar+"\nsegundo lugar: "+segundo_lugar+"\ntercer lugar: "+tercer_lugar);        
     }
 
     public static void regresarMenuPrincipal() {
