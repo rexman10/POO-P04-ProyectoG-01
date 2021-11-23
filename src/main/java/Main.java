@@ -197,9 +197,13 @@ public class Main {
 
         listaDueños = lD;
 
-        Auspiciante auspiciante1 = new Auspiciante("DogChow", "calle1", "0959501881",Quito, "algo@gmial.com", "www.dogchow.com");
+        Auspiciante auspiciante1 = new Auspiciante("DogChow", "calle1", "0959501881",Quito, "dogchow@gmail.com", "www.dogchow.com");
+        Auspiciante auspiciante2 = new Auspiciante("Royal Canine", "calle2", "0959452918", Cuenca, "rcanine@gmail.com", "www.royalcanine.com");
+        Auspiciante auspiciante3 = new Auspiciante("Purina", "calle3", "0991407561", Guayaquil, "purina@gmail.com", "www.purina.com");
         ArrayList<Auspiciante> lA = new ArrayList<>();
         lA.add(auspiciante1);
+        lA.add(auspiciante2);
+        lA.add(auspiciante3);
 
         listaAspiciantes = lA;
 
@@ -441,6 +445,7 @@ public class Main {
         System.out.println();
         System.out.println("Se consultara el concurso " + objetivo);
         objetivo.ganadores();
+        administrarConcurso();
     }
     
 
@@ -450,7 +455,7 @@ public class Main {
             System.out.println(conc);
         }
         System.out.println();
-        System.out.println("Crear concurso (1)\nInscribir participante (2)\nRegresar al Menu Principal (3)\nGandaores pasados(4)\nEliga una de las opciones del menu Concursos:");
+        System.out.println("Crear concurso (1)\nInscribir participante (2)\nGandaores pasados(3)\nRegresar al Menu Principal (4)\nEliga una de las opciones del menu Concursos:");
         //Scanner input = new Scanner(System.in);
         int entrada_user = todo.nextInt();
         todo.nextLine();
@@ -464,14 +469,14 @@ public class Main {
                 inscribirParticipante();
                 todo.nextLine();
                 break;
-
+            
             case 3:
-                regresarMenuPrincipal();
+                ganadoresPasados();
+                todo.nextLine();
                 break;
 
             case 4:
-                ganadoresPasados();
-                todo.nextLine();
+                regresarMenuPrincipal();
                 break;
         }
         //input.close();
