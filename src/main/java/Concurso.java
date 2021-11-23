@@ -11,6 +11,7 @@
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Random;
 
 public class Concurso {
     private String nombre;
@@ -51,6 +52,28 @@ public class Concurso {
 
         mascotasInscritas = inscritos;
         listaGanadores = ganadores;
+    }
+
+    public void ganadores(){
+        Random r = new Random();
+        ArrayList<Mascota> l_masCopia = (ArrayList<Mascota>) mascotasInscritas.clone();
+        //ArrayList<Mascota> l_owo = (ArrayList<Mascota>) listaAptos.clone();
+        //System.out.println(l_owo);
+        int long_mascotas = mascotasInscritas.size();
+        int i_primer_lugar = r.nextInt((long_mascotas-1));
+        Mascota primer_lugar = l_masCopia.get(i_primer_lugar);
+        l_masCopia.remove(primer_lugar);
+        long_mascotas = l_masCopia.size();
+
+        int i_segundo_lugar = r.nextInt(long_mascotas-1);
+        Mascota segundo_lugar = l_masCopia.get(i_segundo_lugar);
+        l_masCopia.remove(segundo_lugar);
+        long_mascotas = l_masCopia.size();
+        
+        int i_tercer_luar = r.nextInt(long_mascotas-1);
+        Mascota tercer_lugar = l_masCopia.get(i_tercer_luar);
+
+        System.out.println("Primer lugar: "+primer_lugar+"\nSegundo lugar: "+segundo_lugar+"\nTercer lugar: "+tercer_lugar);        
     }
 
     public String toString(){

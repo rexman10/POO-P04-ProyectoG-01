@@ -220,6 +220,17 @@ public class Main {
         lConc.add(c2);
 
         listaConcursos = lConc;
+
+        for (Concurso conc : listaConcursos) {
+            if (Calendar.getInstance().after(conc.getFecha())) {
+                conc.inscribirMascota(m1);
+                conc.inscribirMascota(m3);
+                conc.inscribirMascota(m5);
+                conc.inscribirMascota(m7);
+                conc.inscribirMascota(m9);
+
+            }
+        }
     }
 
     static Scanner todo = new Scanner(System.in);
@@ -311,14 +322,14 @@ public class Main {
         System.out.println("------------------Mascotas Disponibles------------------");
         if (comparison == "Todos") {
             for (Mascota pet : listaMascotas) {
-                    listaAptos.add(pet);
+                    //listaAptos.add(pet);
                     System.out.println(pet);
                 }
         }
         if (comparison == "Perros") {
             for (Mascota pet : listaMascotas) {
                 if (pet.getTipoMascota().equals("Perro")) {
-                    listaAptos.add(pet);
+                    //listaAptos.add(pet);
                     System.out.println(pet);
                 }
             }         
@@ -326,7 +337,7 @@ public class Main {
         if (comparison == "Gatos") {
             for (Mascota pet : listaMascotas) {
                 if (pet.getTipoMascota().equals("Gato")) {
-                    listaAptos.add(pet);
+                    //listaAptos.add(pet);
                     System.out.println(pet);
                 }
             }
@@ -413,6 +424,24 @@ public class Main {
         System.out.println(listaConcursos.get(ultimo - 1));
         menuPrincipal();
     }
+
+    public static void ganadoresPasados() {
+        Calendar hoy = Calendar.getInstance();
+        System.out.println();
+        System.out.println("Concursos pasados:");
+        for (Concurso conc : listaConcursos) {
+            if (conc.getFecha().before(hoy)) {
+                System.out.println(conc);
+            }
+        }
+        System.out.println();
+        System.out.println("Ingrese el codigo del concurso para consultar sus ganadores:");
+        String cod = todo.nextLine();
+        Concurso objetivo = encontrarConcurso(cod);
+        System.out.println();
+        System.out.println("Se consultara el concurso " + objetivo);
+        objetivo.ganadores();
+    }
     
 
     public static void administrarConcurso(){
@@ -421,7 +450,7 @@ public class Main {
             System.out.println(conc);
         }
         System.out.println();
-        System.out.println("Crear concurso (1)\nInscribir participante (2)\nRegresar al Menu Principal (3)\nEliga una de las opciones del menu Concursos:");
+        System.out.println("Crear concurso (1)\nInscribir participante (2)\nRegresar al Menu Principal (3)\nGandaores pasados(4)\nEliga una de las opciones del menu Concursos:");
         //Scanner input = new Scanner(System.in);
         int entrada_user = todo.nextInt();
         todo.nextLine();
@@ -438,6 +467,11 @@ public class Main {
 
             case 3:
                 regresarMenuPrincipal();
+                break;
+
+            case 4:
+                ganadoresPasados();
+                todo.nextLine();
                 break;
         }
         //input.close();
@@ -555,34 +589,10 @@ public class Main {
                 administrarMascotas();
                 todo.nextLine();
                 break;
-            case 4:
-                ganadores();
-                todo.nextLine();
-                break;
         }
     }
 
-    public static void ganadores(){
-        Random r = new Random();
-        ArrayList<Mascota> l_masCopia = (ArrayList<Mascota>) listaMascotas.clone();
-        //ArrayList<Mascota> l_owo = (ArrayList<Mascota>) listaAptos.clone();
-        //System.out.println(l_owo);
-        int long_mascotas = listaMascotas.size();
-        int i_primer_lugar = r.nextInt((long_mascotas-1));
-        Mascota primer_lugar = l_masCopia.get(i_primer_lugar);
-        l_masCopia.remove(primer_lugar);
-        long_mascotas = l_masCopia.size();
 
-        int i_segundo_lugar = r.nextInt(long_mascotas-1);
-        Mascota segundo_lugar = l_masCopia.get(i_segundo_lugar);
-        l_masCopia.remove(segundo_lugar);
-        long_mascotas = l_masCopia.size();
-        
-        int i_tercer_luar = r.nextInt(long_mascotas-1);
-        Mascota tercer_lugar = l_masCopia.get(i_tercer_luar);
-
-        System.out.println("primer lugar: "+primer_lugar+"\nsegundo lugar: "+segundo_lugar+"\ntercer lugar: "+tercer_lugar);        
-    }
 
     public static void regresarMenuPrincipal() {
         menuPrincipal();
