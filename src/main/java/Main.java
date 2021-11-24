@@ -9,11 +9,16 @@
  * @author alex_
  */
 
+import modelo.Ciudad;
+import modelo.Auspiciante;
+import modelo.Premio;
+import modelo.Dueño;
+import modelo.Concurso;
+import modelo.Mascota;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import java.util.Random;
 
 public class Main { 
     public static ArrayList<Dueño> listaDueños;
@@ -323,16 +328,19 @@ public class Main {
         System.out.println();
         System.out.println("Se inscribira al concurso " + objetivo);
         String comparison = objetivo.getDirigido();
+        System.out.println();
         System.out.println("------------------Mascotas Disponibles------------------");
         if (comparison == "Todos") {
             for (Mascota pet : listaMascotas) {
+                if (!objetivo.getListaConcursantes().contains(pet)) {
                     //listaAptos.add(pet);
                     System.out.println(pet);
+                }
                 }
         }
         if (comparison == "Perros") {
             for (Mascota pet : listaMascotas) {
-                if (pet.getTipoMascota().equals("Perro")) {
+                if (pet.getTipoMascota().equals("Perro") && !objetivo.getListaConcursantes().contains(pet)) {
                     //listaAptos.add(pet);
                     System.out.println(pet);
                 }
@@ -340,7 +348,7 @@ public class Main {
         }
         if (comparison == "Gatos") {
             for (Mascota pet : listaMascotas) {
-                if (pet.getTipoMascota().equals("Gato")) {
+                if (pet.getTipoMascota().equals("Gato") && !objetivo.getListaConcursantes().contains(pet)) {
                     //listaAptos.add(pet);
                     System.out.println(pet);
                 }
@@ -354,7 +362,7 @@ public class Main {
         objetivo.inscribirMascota(pet);
         System.out.println("Se ha inscrito a " + pet.getNombre() + " en el concurso " + objetivo.getNombre());
         System.out.println();
-        menuPrincipal();
+        administrarConcurso();
         //int indice = objetivo.getListaConcursantes().indexOf(encontrarMascota(mascota_code));
         //System.out.println(objetivo.getListaConcursantes().get(indice));
     }
@@ -604,19 +612,9 @@ public class Main {
     }
 
     public static void main(String[] args){
+
         cargarBaseDatos();
-
-
-        //menuPrincipal();
         menuPrincipal();
-        //System.out.println(listaConcursos.get(0).getPremios());
         
-
-        
-
-        //d1.editarDueño();
-
-        //System.out.println(listaDueños.get(0));
-
     }
 }

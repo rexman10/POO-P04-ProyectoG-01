@@ -1,1 +1,8 @@
+modelo\Premio.class
+modelo\Auspiciante.class
+modelo\Concurso.class
+modelo\Dueño.class
 Main.class
+modelo\Persona.class
+modelo\Mascota.class
+modelo\Ciudad.class
