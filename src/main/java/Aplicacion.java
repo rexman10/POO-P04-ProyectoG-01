@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-public class Main { 
+public class Aplicacion { 
     public static ArrayList<Dueño> listaDueños;
     public static ArrayList<Mascota> listaMascotas;
     public static ArrayList<Auspiciante> listaAspiciantes;
@@ -451,7 +451,7 @@ public class Main {
         String cod = todo.nextLine();
         Concurso objetivo = encontrarConcurso(cod);
         System.out.println();
-        System.out.println("Se consultara el concurso " + objetivo);
+        System.out.println("Se consultara el " + objetivo);
         objetivo.ganadores();
         administrarConcurso();
     }
