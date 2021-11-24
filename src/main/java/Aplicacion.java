@@ -26,7 +26,6 @@ public class Aplicacion {
     public static ArrayList<Auspiciante> listaAspiciantes;
     public static ArrayList<Ciudad> listaCiudades;
     public static ArrayList<Concurso> listaConcursos;
-    public static ArrayList<Mascota> listaAptos;
 
 
     public static boolean dueñoExiste(String id){
@@ -333,7 +332,6 @@ public class Aplicacion {
         if (comparison == "Todos") {
             for (Mascota pet : listaMascotas) {
                 if (!objetivo.getListaConcursantes().contains(pet)) {
-                    //listaAptos.add(pet);
                     System.out.println(pet);
                 }
                 }
@@ -341,7 +339,6 @@ public class Aplicacion {
         if (comparison == "Perros") {
             for (Mascota pet : listaMascotas) {
                 if (pet.getTipoMascota().equals("Perro") && !objetivo.getListaConcursantes().contains(pet)) {
-                    //listaAptos.add(pet);
                     System.out.println(pet);
                 }
             }         
@@ -349,7 +346,6 @@ public class Aplicacion {
         if (comparison == "Gatos") {
             for (Mascota pet : listaMascotas) {
                 if (pet.getTipoMascota().equals("Gato") && !objetivo.getListaConcursantes().contains(pet)) {
-                    //listaAptos.add(pet);
                     System.out.println(pet);
                 }
             }
