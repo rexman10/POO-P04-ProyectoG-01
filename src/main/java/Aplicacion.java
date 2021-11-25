@@ -162,16 +162,16 @@ public class Aplicacion {
         Dueño d9 = new Dueño("0982837282", "Abraham Orlando", "Hernandez Calzada", "Yanuncay", "0960704725", Cuenca, "ejemplo9@gmail.com");
         Dueño d10 = new Dueño("0928493859", "Jose Juan", "Sebastián Vazquez", "Urdesa", "0976082153", Guayaquil, "ejemplo10@gmail.com");
 
-        Mascota m1 = new Mascota("Fifi", "Gato", "persa", "25-12-2017", "f1", d1);
-        Mascota m2 = new Mascota("Coco", "Perro", "labrador", "15-02-2016", "f2", d2);
-        Mascota m3 = new Mascota("Max", "Perro", "golden retriever", "20-05-2016", "f3", d3);
-        Mascota m4 = new Mascota("Rocky", "Gato", "siames", "30-12-2019", "f4", d4);
-        Mascota m5 = new Mascota("Toby", "Perro", "chihuahua", "20-10-2018", "f5", d5);
-        Mascota m6 = new Mascota("Simba", "Gato", "ragdoll", "15-11-2019", "f6", d6);
-        Mascota m7 = new Mascota("Leo", "Gato", "bengala", "10-04-2020", "f7", d7);
-        Mascota m8 = new Mascota("Lucas", "Perro", "caniche", "05-06-2012", "f8", d8);
-        Mascota m9 = new Mascota("Zeus", "Perro", "poodle", "01-07-2014", "f9", d9);
-        Mascota m10 = new Mascota("Bruno", "Gato", "munchkin", "01-09-2018", "f10", d10);
+        Mascota m1 = new Mascota("Fifi", "Gato", "persa", "25-12-2017", "", d1);
+        Mascota m2 = new Mascota("Coco", "Perro", "labrador", "15-02-2016", "", d2);
+        Mascota m3 = new Mascota("Max", "Perro", "golden retriever", "20-05-2016", "", d3);
+        Mascota m4 = new Mascota("Rocky", "Gato", "siames", "30-12-2019", "", d4);
+        Mascota m5 = new Mascota("Toby", "Perro", "chihuahua", "20-10-2018", "", d5);
+        Mascota m6 = new Mascota("Simba", "Gato", "ragdoll", "15-11-2019", "", d6);
+        Mascota m7 = new Mascota("Leo", "Gato", "bengala", "10-04-2020", "", d7);
+        Mascota m8 = new Mascota("Lucas", "Perro", "caniche", "05-06-2012", "", d8);
+        Mascota m9 = new Mascota("Zeus", "Perro", "poodle", "01-07-2014", "", d9);
+        Mascota m10 = new Mascota("Bruno", "Gato", "munchkin", "01-09-2018", "", d10);
         
         ArrayList<Mascota> lM = new ArrayList<>();
         lM.add(m1);
@@ -523,16 +523,17 @@ public class Aplicacion {
         String raza_pet = todo.nextLine();
         System.out.println("Ingrese la fecha de nacimiento (dd-mm-aaaa):");
         String nacimiento = todo.nextLine();
-        System.out.println("Ingrese el url de la foto:");
-        String link = todo.nextLine();
+        //System.out.println("Ingrese el url de la foto:");
+        //String link = todo.nextLine();
         System.out.println("------------------Dueños disponibles------------------");
         for (Dueño d : listaDueños) {
             System.out.println(d);
         }
+        System.out.println();
         System.out.println("Ingrese la cedula del dueño de la mascota");
         String cedula_dueño = todo.nextLine();
         Dueño d = encontrarDueño(cedula_dueño);
-        Mascota resultado = new Mascota(name, type, raza_pet, nacimiento, link, d);
+        Mascota resultado = new Mascota(name, type, raza_pet, nacimiento, "", d);
         while (mascotaExiste(resultado.getCodigo())) {
             resultado.generarCodigo(resultado);
         }
