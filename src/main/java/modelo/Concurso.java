@@ -74,7 +74,8 @@ public class Concurso {
         
         int i_tercer_luar = r.nextInt(long_mascotas-1);
         Mascota tercer_lugar = l_masCopia.get(i_tercer_luar);
-
+        System.out.println(this.getPremios());
+        System.out.println();
         System.out.println("Primer lugar: "+primer_lugar+"\nSegundo lugar: "+segundo_lugar+"\nTercer lugar: "+tercer_lugar);        
     }
 
