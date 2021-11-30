@@ -218,10 +218,10 @@ public class Aplicacion {
         Calendar finInscrip = new GregorianCalendar(2021, Calendar.NOVEMBER, 2);
         Concurso c1  = new Concurso("Top Mascotas",fechaEvento,16,inicioInscrip,finInscrip,Quito,"Estadio local",premio_c1,auspiciante1,"Todos");
 
-        Calendar fc2 = new GregorianCalendar(2021, Calendar.NOVEMBER, 30);
+        Calendar fc2 = new GregorianCalendar(2021, Calendar.DECEMBER, 30);
         Calendar fin2 = new GregorianCalendar(2021, Calendar.NOVEMBER, 15);
         Calendar ffin2 = new GregorianCalendar(2021, Calendar.NOVEMBER, 25);
-        Concurso c2 = new Concurso("Firulais", fc2, 20, fin2, ffin2, Cuenca, "Casa comunal", premio_c1, auspiciante1, "Gatos");
+        Concurso c2 = new Concurso("Firulais", fc2, 20, fin2, ffin2, Cuenca, "Casa c5omunal", premio_c1, auspiciante1, "Gatos");
 
         ArrayList<Concurso> lConc = new ArrayList<>();
         lConc.add(c1);
