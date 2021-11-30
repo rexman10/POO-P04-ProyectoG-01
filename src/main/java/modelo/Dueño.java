@@ -28,6 +28,8 @@ public class Dueño extends Persona{
         this.email = email;
     }
 
+
+    // sobreescritura del metodo equals para poder comparar usando la variable cedula
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -102,48 +104,4 @@ public class Dueño extends Persona{
     }
     
 
-    //public void editarDueño(){
-    //    System.out.println("Desea editar los datos del dueño: " + this.getNombre() + " con cedula de identidad: " + this.getCedula() + "? (S/N)");
-    //    Scanner input = new Scanner(System.in);
-    //    String entrada = input.nextLine();
-    //    if (entrada.equals("S")) {
-    //        Scanner textos = new Scanner(System.in);
-    //        System.out.println("Ingrese la nueva direccion:");
-    //        String direccion_nueva = textos.nextLine();
-    //        this.setDireccion(direccion_nueva);
-    //        System.out.println("Ingrese el nuevo numero de telefono:");
-    //        String tel_nuevo = textos.nextLine();
-    //        this.setTelefono(tel_nuevo);
-            //System.out.println("Ciudades disponibles:");
-            //for (Ciudad c : lciudades) {
-            //    System.out.println(c);
-            //}
-            //System.out.println("Desea agregar una nueva ciudad? (S/N)");
-            //Scanner cities = new Scanner(System.in);
-            //String decision = cities.nextLine();
-            //if (decision == "S") {
-            //    System.out.println("Ingrese el nombre de la nueva ciudad:");
-            //   String nueva_ciudad = cities.nextLine();
-            //    System.out.println("Ingrese el nombre de la nueva provincia");
-            //    String nueva_provincia = cities.nextLine();
-            //    Ciudad ciudad = new Ciudad(nueva_ciudad,nueva_provincia);
-            //
-            //}
-            //else if (decision == "N") {
-            //    System.out.println("Eliga una de las ciudades de la lista:");
-            //    String ciudad_reemplazo = cities.nextLine();
-            //    d.ciudad = ;
-            //}
-    //        System.out.println("Ingrese el nuevo email: ");
-    //        String nuevo_email = textos.nextLine();
-    //        this.setEmail(nuevo_email);
-
-    //        textos.close();
-    //    }
-    //    if (entrada.equals("N")){
-    //        System.out.println("No se ha editado ningun dueño");
-    //    }
-    //    input.close();
-    //}
-    
 }

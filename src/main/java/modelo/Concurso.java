@@ -56,11 +56,10 @@ public class Concurso {
         listaGanadores = ganadores;
     }
 
+    // este metodo escoge tres mascotas al azar de la lista mascotas inscritas para poder posicionarlas como ganadores
     public void ganadores(){
         Random r = new Random();
         ArrayList<Mascota> l_masCopia = (ArrayList<Mascota>) mascotasInscritas.clone();
-        //ArrayList<Mascota> l_owo = (ArrayList<Mascota>) listaAptos.clone();
-        //System.out.println(l_owo);
         int long_mascotas = mascotasInscritas.size();
         int i_primer_lugar = r.nextInt((long_mascotas-1));
         Mascota primer_lugar = l_masCopia.get(i_primer_lugar);

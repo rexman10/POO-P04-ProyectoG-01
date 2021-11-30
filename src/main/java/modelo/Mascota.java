@@ -46,6 +46,7 @@ public class Mascota {
         this.codigo = code;
     }
 
+    // genera un codigo aleatorio que se concatena con los primeros tres caracteres de la variable raza 
     public void generarCodigo(Mascota m) {
         short x  = (short) (1000*Math.random()+1);
         codigo = this.tipoMascota.toUpperCase() + x + "-" + this.raza.substring(0,3).toUpperCase();
