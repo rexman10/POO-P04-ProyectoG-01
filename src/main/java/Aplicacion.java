@@ -29,11 +29,13 @@ public class Aplicacion {
 
 
     public static boolean dueñoExiste(String id){
+        //Recibe como parámetro la cedula de un dueño y devuelve true si este se encuentra en la base de datos, caso contrario devuelve false//
         Dueño busqueda = new Dueño(id);
         return listaDueños.contains(busqueda);
     }
 
     public static Dueño encontrarDueño(String cedula) {
+        //Recibe como parámetro la cédula de un dueño y lo busca en la base de datos, si lo encuentra retorna el dueño en cuestion caso contrario retorna null//
         for(Dueño dueño : listaDueños) {
             if(dueño.getCedula().equals(cedula)) {
                 return dueño;
@@ -42,24 +44,14 @@ public class Aplicacion {
         return null;
     }
 
-    public static void consultaDueño(String cedula){
-        Dueño busqueda =  new Dueño(cedula);
-
-        if (listaDueños.contains(busqueda)){
-          int indice = listaDueños.indexOf(busqueda);
-          Dueño veh = listaDueños.get(indice);
-          System.out.println(veh);
-        }else{
-          System.out.println("No se encuentra persona con esa cedula");
-        }
-    }
-
     public static boolean auspicianteExiste(String codigo){
+        //Recibe como parámetro el código de una mascota y devuelve true si este se encuentra en la base de datos, caso contrario devuelve false//
         Auspiciante busqueda = new Auspiciante(codigo);
         return listaAspiciantes.contains(busqueda);
     }
 
     public static Auspiciante encontrarAuspiciante(String codigo) {
+        //Recibe como parámetro el código de una mascota y lo busca en la base de datos, si lo encuentra retorna la mascota en cuestion, caso contrario retorna null//
         for(Auspiciante ausp : listaAspiciantes) {
             if(ausp.getCodigo().equals(codigo)) {
                 return ausp;
@@ -68,23 +60,14 @@ public class Aplicacion {
         return null;
     }
 
-    public static void consultaAuspiciante(String cod){
-        Auspiciante busqueda =  new Auspiciante(cod);
-        if (listaAspiciantes.contains(busqueda)){
-          int indice = listaAspiciantes.indexOf(busqueda);
-          Auspiciante auspiciante = listaAspiciantes.get(indice);
-          System.out.println(auspiciante);
-        } else {
-          System.out.println("No se encuentra auspiciante con ese codigo");
-        }
-    }
-
     public static boolean concursoExiste(String codigo){
+        //Recibe como parámetro el código de un concurso y devuelve true si este se encuentra en la base de datos, caso contrario devuelve false//
         Concurso busqueda = new Concurso(codigo);
         return listaConcursos.contains(busqueda);
     }
 
     public static Concurso encontrarConcurso(String codigo) {
+        //Recibe como parámetro el código de un concurso y lo busca en la base de datos, si lo encuentra retorna el concurso en cuestion caso contrario retorna null//
         for(Concurso conc : listaConcursos) {
             if(conc.getCodigo().equals(codigo)) {
                 return conc;
@@ -93,23 +76,14 @@ public class Aplicacion {
         return null;
     }
 
-    public static void consultaConcurso(String cod){
-        Concurso busqueda =  new Concurso(cod);
-        if (listaConcursos.contains(busqueda)){
-          int indice = listaConcursos.indexOf(busqueda);
-          Concurso conc = listaConcursos.get(indice);
-          System.out.println(conc);
-        } else {
-          System.out.println("No se encuentra concurso con ese codigo");
-        }
-    }
-
     public static boolean mascotaExiste(String codigo){
+        //Recibe como parámetro el código de una mascota y devuelve true si este se encuentra en la base de datos, caso contrario devuelve false//
         Mascota busqueda = new Mascota(codigo);
         return listaMascotas.contains(busqueda);
     }
 
     public static Mascota encontrarMascota(String codigo) {
+        //Recibe como parámetro el código de una mascota y lo busca en la base de datos, si lo encuentra retorna la mascota en cuestion caso contrario retorna null//
         for(Mascota pet : listaMascotas) {
             if(pet.getCodigo().equals(codigo)) {
                 return pet;
@@ -118,18 +92,8 @@ public class Aplicacion {
         return null;
     }
 
-    public static void consultaMascota(String cod){
-        Mascota busqueda =  new Mascota(cod);
-        if (listaMascotas.contains(busqueda)){
-          int indice = listaMascotas.indexOf(busqueda);
-          Mascota pet = listaMascotas.get(indice);
-          System.out.println(pet);
-        } else {
-          System.out.println("No se encuentra mascota con ese codigo");
-        }
-    }
-
     public static Ciudad encontrarCiudad(String nombre) {
+        //Recibe como parámetro el nombre de una ciudad y lo busca en la base de datos, si lo encuentra retorna la ciudad en cuestion caso contrario retorna null//
         for(Ciudad city : listaCiudades) {
             if(city.getNombre().equals(nombre)) {
                 return city;
@@ -139,6 +103,7 @@ public class Aplicacion {
     }
 
     public static void cargarBaseDatos(){
+        //Se encarga de generar todos los datos preexistentes para que la aplicación funcione correctamente. No devuelve nada.//
 
         Ciudad Quito = new Ciudad("Quito", "Pichincha");
         Ciudad Guayaquil = new Ciudad("Guayaquil", "Guayas");
@@ -244,6 +209,7 @@ public class Aplicacion {
     static Scanner todo = new Scanner(System.in);
 
     public static Premio crearPremio(){
+        //Método que pide por entrada del usuario ingresar los premios de un Concurso. Retorna un objeto de tipo Premio//
         //Scanner premios = new Scanner(System.in);
         System.out.println("Ingrese el primer premio:");
         String p1 = todo.nextLine();
@@ -257,6 +223,7 @@ public class Aplicacion {
     }
 
     public static void crearDueño(){
+        //Método que solicita la informacion de un nuevo dueño por teclado y lo añade a la base de datos existente. No retorna nada//
         System.out.println("Creacion de un nuevo dueño:");
         System.out.println("Ingrese la cedula:");
         String cid = todo.nextLine();
@@ -278,6 +245,7 @@ public class Aplicacion {
     }
 
     public static void editarDueño() {
+        //Permite al usuario modificar algunos de los datos de un dueño asociado a un numero de cédula. No retorna nada solo modifica los valores internamente//
         System.out.println("Ingrese la cedula del dueño a editar:");
         String cedula = todo.nextLine();
         if (dueñoExiste(cedula)) {
@@ -312,6 +280,9 @@ public class Aplicacion {
     }
 
     public static void inscribirParticipante(){
+        //Método que verifica si los concursos se encuantran disponibles para inscripción en base a la fecha
+        //actual, los muestra por pantalla y pide al usuario eliga uno en base al codigo de concurso. 
+        //Luego solicita la mascota a ser inscrita de acuerdo al concurso
         Calendar hoy = Calendar.getInstance();
         System.out.println();
         System.out.println("Concursos disponibles para inscripcion:");
@@ -359,13 +330,11 @@ public class Aplicacion {
         System.out.println("Se ha inscrito a " + pet.getNombre() + " en el concurso " + objetivo.getNombre());
         System.out.println();
         administrarConcurso();
-        //int indice = objetivo.getListaConcursantes().indexOf(encontrarMascota(mascota_code));
-        //System.out.println(objetivo.getListaConcursantes().get(indice));
     }
 
 
     public static void crearConcurso(){
-        //Scanner concursos = new Scanner(System.in);
+        //Método que pide al usuario ingresar por teclado toda la informacion necesaria para crear un nuevo concurso y lo añade a la base de datos//
         System.out.println("Ingrese el nombre del concurso:");
         String n = todo.nextLine();
         System.out.println("Ingrese la fecha del concurso(dd/mm/aaaa):");
@@ -409,7 +378,6 @@ public class Aplicacion {
         String cod_ausp = todo.nextLine();
         Auspiciante ausp_conc = encontrarAuspiciante(cod_ausp);
         System.out.println("A quien estara dirigido el concurso?\nPerros (1)\nGatos (2)\nTodos (3)\nDirigido a: ");
-        //System.out.println(todo.hasNextLine());
         int entry = todo.nextInt();
         String dirig = "";
         if (entry == 1) {
@@ -434,6 +402,7 @@ public class Aplicacion {
     }
 
     public static void ganadoresPasados() {
+        //Verifica la fecha actual y muestra los concursos pasados para poder elegir uno de ellos en base a su código. Muestra por pantalla los ganadores de dicho concurso//
         Calendar hoy = Calendar.getInstance();
         System.out.println();
         System.out.println("Concursos pasados:");
@@ -454,6 +423,7 @@ public class Aplicacion {
     
 
     public static void administrarConcurso(){
+        //Método que administra todos los menús asociados a los objetos tipo Concurso//
         System.out.println("------------------Concursos------------------");
         for (Concurso conc : listaConcursos) {
             System.out.println(conc);
@@ -487,6 +457,7 @@ public class Aplicacion {
     }
 
     public static void administrarDueños() {
+        //Método que administra todos los menús asociados a los objetos tipo Dueño//
         System.out.println("------------------Dueños------------------");
         for (Dueño d : listaDueños) {
             System.out.println(d);
@@ -514,6 +485,7 @@ public class Aplicacion {
     }
 
     public static void crearMascota() {
+        //Método que pide al usuario ingresar por teclado toda la informacion necesaria para crear una nueva mascota y la añade a la base de datos//
         System.out.println("Creacion de una nueva mascota:");
         System.out.println("Ingrese el nombre:");
         String name = todo.nextLine();
@@ -544,6 +516,7 @@ public class Aplicacion {
     }
 
     public static void eliminarMascota() {
+        //Método que pide al usuario ingresar por teclado el código de una Mascota existente en la base de datos y la elimina de esta pero no de ningun registro pasado//
         System.out.println("Escriba el codigo de la mascota a eliminar");
         String id_pet = todo.nextLine();
         Mascota m = encontrarMascota(id_pet);
@@ -557,6 +530,7 @@ public class Aplicacion {
     }
 
     public static void administrarMascotas() {
+        //Método que administra todos los menús asociados a los objetos tipo Mascota//
         System.out.println("------------------Mascotas------------------");
         for (Mascota m : listaMascotas) {
             System.out.println(m);
@@ -584,6 +558,7 @@ public class Aplicacion {
     }
 
     public static void menuPrincipal(){
+        //Método que se encarga de administrar todos los menús de la aplicación//
         System.out.println("------------------Menu Principal------------------\nAdministrar concursos (1)\nAdministrar dueños (2)\nAdministrar mascotas (3)\nEliga una de las opciones del Menu Principal:");
         int seleccion = todo.nextInt();
         switch (seleccion) {
@@ -605,6 +580,7 @@ public class Aplicacion {
 
 
     public static void regresarMenuPrincipal() {
+        //Método para regresar al menú principal desde cualquier otro menú//
         menuPrincipal();
     }
 
