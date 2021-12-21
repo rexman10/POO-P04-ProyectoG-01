@@ -28,7 +28,7 @@ public class Dueño extends Persona{
         this.email = email;
     }
 
-
+    
     // sobreescritura del metodo equals para poder comparar usando la variable cedula
     @Override
     public boolean equals(Object obj) {
